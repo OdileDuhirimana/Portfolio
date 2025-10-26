@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Brand tokens */
+  --bg: #0B0B10;
+  --panel: #111218;
+  --text: #EDEDF1;
+  --muted: #A7A7B2;
+  /* Pure gold accent (no yellow tones) */
+  --gold: #D4AF37;
+  --purple: #6E56CF;
+  --line: #1B1C24;
+  --success: #2FBF71;
+  --danger: #F05454;
+  --focus: #9B87F5;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--bg);
+  --color-foreground: var(--text);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), ui-sans-serif, system-ui;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading), ui-sans-serif, system-ui;
+}
+
+/* Utility container width similar to 1200px with side gutters */
+.container {
+  max-width: 1200px;
+}
+
+/* Focus ring for accessibility */
+:where(a, button, [role="button"], input, textarea, summary):focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--focus);
+}
+
+/* Smooth transitions */
+* {
+  transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
 }

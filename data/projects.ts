@@ -135,6 +135,48 @@ export const projects: Project[] = [
     architectureDiagram: "/images/diagrams/trackella.png"
   },
   {
+    title: "eFiche Mobile",
+    slug: "efiche-mobile",
+    category: "frontend",
+    tagline: "Mobile app feature development and performance improvements.",
+    tech: ["Flutter","Dart"],
+    highlights: [
+      "Delivered new mobile features with a focus on UX and stability",
+      "Optimized screens and flows for smoother performance",
+      "Collaborated with product and QA to iterate on feedback"
+    ],
+    role: "Mobile Developer (Intern)",
+    duration: "2026"
+  },
+  {
+    title: "eFiche Web Platform",
+    slug: "efiche-web",
+    category: "fullstack",
+    tagline: "Internal platform for workflows and operations.",
+    tech: ["Next.js","Laravel"],
+    highlights: [
+      "Implemented new web features and workflows",
+      "Integrated frontend with backend endpoints",
+      "Helped troubleshoot and ship production fixes"
+    ],
+    role: "Software Engineering Intern",
+    duration: "2026"
+  },
+  {
+    title: "eFiche Team Dashboard",
+    slug: "efiche-dashboard",
+    category: "backend",
+    tagline: "Performance analytics API for team dashboards.",
+    tech: ["Python","FastAPI"],
+    highlights: [
+      "Built APIs powering team performance views",
+      "Structured analytics endpoints for dashboard insights",
+      "Improved stability for reporting workflows"
+    ],
+    role: "Software Engineering Intern",
+    duration: "2026"
+  },
+  {
     title: "FitSync",
     slug: "fitsync",
     category: "frontend",

@@ -1,47 +1,52 @@
 import type { Category } from "@/data/projects";
 import {
-  Building2,
+  Landmark,
   GraduationCap,
   HeartPulse,
   Ticket,
-  LineChart,
-  Activity,
-  PhoneCall,
-  Link2,
-  ShoppingBag,
-  MessagesSquare,
-  Eye,
+  Wallet,
+  Dumbbell,
+  Stethoscope,
+  Briefcase,
+  ShoppingCart,
+  UsersRound,
+  MessageCircle,
   ShieldCheck,
-  Lightbulb,
+  Brain,
+  Server,
+  LayoutGrid,
+  Layers,
+  LineChart,
 } from "lucide-react";
 
 const GOLD = "#D4AF37";
 const SIZE = 44; // ~ h-11
+const STROKE = 1.5;
 
 const byCategoryIcon: Record<Category, React.ComponentType<any>> = {
-  backend: Building2,
-  frontend: LineChart,
-  fullstack: Building2,
-  ml: LineChart,
+  backend: Server,
+  frontend: LayoutGrid,
+  fullstack: Layers,
+  ml: Brain,
 };
 
 const bySlug: Record<string, React.ComponentType<any>> = {
-  "nova-bank-core": Building2,
+  "nova-bank-core": Landmark,
   "edusync-lms": GraduationCap,
   "careflow-api": HeartPulse,
   gatherly: Ticket,
-  trackella: LineChart,
-  fitsync: Activity,
-  careconnect: PhoneCall,
-  skillbridge: Link2,
-  safeshop: ShoppingBag,
-  campusconnect: MessagesSquare,
-  sentimentscope: Eye,
+  trackella: Wallet,
+  fitsync: Dumbbell,
+  careconnect: Stethoscope,
+  skillbridge: Briefcase,
+  safeshop: ShoppingCart,
+  campusconnect: UsersRound,
+  sentimentscope: MessageCircle,
   "fraudguard-ml": ShieldCheck,
-  predictwise: Lightbulb,
+  predictwise: Brain,
 };
 
 export default function ProjectIcon({ slug, category }: { slug: string; category: Category }) {
   const Icon = bySlug[slug] || byCategoryIcon[category] || LineChart;
-  return <Icon size={SIZE} color={GOLD} strokeWidth={2.25} />;
+  return <Icon size={SIZE} color={GOLD} strokeWidth={STROKE} />;
 }

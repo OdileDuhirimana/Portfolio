@@ -29,12 +29,12 @@ export default function AboutPage() {
           <h2 className="text-lg font-semibold">Experience</h2>
           <ul className="mt-3 list-disc pl-5 space-y-2 text-(--text)/90">
             <li>
-              <span className="font-medium">Mobile Developer & Data Analytics Intern</span> — eFiche Company <span className="text-(--muted)">| Current</span>
+              <span className="font-medium">Software Engineering Intern</span> — eFiche <span className="text-(--muted)">| Feb 2026 – Present</span>
               <ul className="mt-1 list-disc pl-5 space-y-1">
-                <li>Developed and optimized mobile features, improving app performance and user experience.</li>
-                <li>Analyzed user and system data to support strategic and operational decisions.</li>
-                <li>Contributed to sprint planning and Agile workflows.</li>
-                <li>Strengthened collaboration skills in a professional engineering environment.</li>
+                <li>Contributed to the development and improvement of the eFiche Mobile App and Team Performance Dashboard.</li>
+                <li>Supported other ongoing projects, collaborating across functions to implement features and troubleshoot issues.</li>
+                <li>Managed environment configurations and deployment tasks for production updates.</li>
+                <li>Participated in requirement discussions, translating feedback into technical solutions.</li>
               </ul>
             </li>
           </ul>

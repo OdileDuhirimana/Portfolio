@@ -13,7 +13,7 @@ export default function ProjectsPageClient() {
 
   return (
     <main className="container mx-auto px-6 md:px-8 py-10">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <SectionHeader title="Projects" subtitle="Explore work across Backend, AI/ML, Full-Stack, and Frontend." />
         <CategoryTabs value={tab} onChange={setTab} />
       </div>

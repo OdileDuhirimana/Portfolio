@@ -18,12 +18,12 @@ export default function CategoryTabs({ value, onChange }: { value?: Category; on
     onChange?.(c);
   };
   return (
-    <div className="inline-flex items-center gap-2 rounded-2xl border border-(--line) bg-(--panel) p-1">
+    <div className="inline-flex items-center gap-2 rounded-full border border-(--line) bg-(--panel) p-1.5">
       {tabs.map(t => (
         <button
           key={t.key}
           onClick={() => change(t.key)}
-          className={`relative rounded-xl px-3 py-2 text-sm transition-colors ${current === t.key ? "bg-white/5 text-white" : "text-(--muted) hover:text-white"}`}
+          className={`relative rounded-full px-3 py-1.5 text-xs uppercase tracking-wider transition-colors ${current === t.key ? "bg-white/5 text-white" : "text-(--muted) hover:text-white"}`}
         >
           {t.label}
           {current === t.key ? <span className="absolute left-1/2 -bottom-[3px] h-[2px] w-6 -translate-x-1/2 rounded-full bg-(--gold)" /> : null}

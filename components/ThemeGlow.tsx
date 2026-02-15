@@ -17,7 +17,14 @@ export default function ThemeGlow() {
         animate={{ opacity: 0.18, x: reduce ? 0 : -10 }}
         transition={{ duration: 10, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
         className="absolute right-[-10%] bottom-[-10%] h-[40vh] w-[50vw] rounded-[999px] blur-3xl"
-        style={{ background: "radial-gradient(closest-side, rgba(110,86,207,0.25), transparent 70%)" }}
+        style={{ background: "radial-gradient(closest-side, rgba(59,182,161,0.24), transparent 70%)" }}
+      />
+      <motion.div
+        initial={{ opacity: 0.1, x: reduce ? 0 : 10 }}
+        animate={{ opacity: 0.16, x: reduce ? 0 : -10 }}
+        transition={{ duration: 12, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
+        className="absolute left-[-10%] bottom-[10%] h-[35vh] w-[45vw] rounded-[999px] blur-3xl"
+        style={{ background: "radial-gradient(closest-side, rgba(56,150,255,0.2), transparent 70%)" }}
       />
     </div>
   );

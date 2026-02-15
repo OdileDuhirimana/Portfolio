@@ -24,6 +24,25 @@ export default function ProjectCard({
   variant = "simple",
   title, tagline, tech, highlights, metrics, liveUrl, repoUrl, slug, category
 }: Props) {
+  const coverMap: Record<Props["category"], { label: string; bg: string }> = {
+    backend: {
+      label: "Backend Systems",
+      bg: "linear-gradient(135deg, rgba(212,175,55,0.25) 0%, rgba(23,31,46,0.9) 60%)",
+    },
+    frontend: {
+      label: "Frontend Experience",
+      bg: "linear-gradient(135deg, rgba(59,182,161,0.28) 0%, rgba(18,24,32,0.9) 60%)",
+    },
+    fullstack: {
+      label: "Full-Stack Product",
+      bg: "linear-gradient(135deg, rgba(255,140,90,0.22) 0%, rgba(18,20,30,0.9) 60%)",
+    },
+    ml: {
+      label: "AI/ML Systems",
+      bg: "linear-gradient(135deg, rgba(56,150,255,0.22) 0%, rgba(16,20,28,0.9) 60%)",
+    },
+  };
+  const cover = coverMap[category];
   const [qrOpen, setQrOpen] = useState(false);
   const cardRef = useRef<HTMLDivElement | null>(null);
   const reduce = useReducedMotion();
@@ -54,9 +73,15 @@ export default function ProjectCard({
       transition={reduce ? undefined : { duration: 0.32, ease: [0.25, 0.8, 0.25, 1] }}
       className="group relative rounded-[20px] border border-(--line) bg-(--panel) p-6 transition will-change-transform hover:-translate-y-1 hover:shadow-[0_0_0_1px_rgba(212,175,55,0.35),0_8px_30px_rgba(0,0,0,0.35)]"
     >
-      <header className="mb-4 text-center">
-        <div className="mb-4 grid place-items-center rounded-full p-1 transition shadow-[0_0_0_0_rgba(212,175,55,0)] group-hover:shadow-[0_0_0_8px_rgba(212,175,55,0.08)]">
-          <ProjectIcon slug={slug} category={category} />
+      <header className="mb-4">
+        <div className="relative mb-4 overflow-hidden rounded-2xl border border-(--line) p-4">
+          <div className="absolute inset-0 opacity-90" style={{ background: cover.bg }} />
+          <div className="relative flex items-center justify-between">
+            <span className="text-xs uppercase tracking-widest text-(--muted)">{cover.label}</span>
+            <span className="grid h-11 w-11 place-items-center rounded-full border border-(--line) bg-black/40">
+              <ProjectIcon slug={slug} category={category} />
+            </span>
+          </div>
         </div>
         <h3 className="text-2xl font-semibold text-foreground">{title}</h3>
         <p className="mt-1 text-(--muted)">{tagline}</p>
@@ -77,6 +102,12 @@ export default function ProjectCard({
       ) : null}
 
       <div className="flex items-center gap-3">
+        <a
+          className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm hover:bg-white/5"
+          href={`/project/${slug}`}
+        >
+          Case Study
+        </a>
         {liveUrl && (
           <a className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm hover:bg-white/5"
              href={liveUrl} target="_blank" rel="noreferrer">

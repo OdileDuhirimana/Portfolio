@@ -1,14 +1,23 @@
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden rounded-2xl border border-(--line) bg-(--panel) p-8 md:p-12">
-      <div className="max-w-3xl">
-        <p className="text-sm uppercase tracking-widest text-(--gold)">ODILE DUHIRIMANA</p>
+    <section className="relative overflow-hidden rounded-3xl border border-(--line) bg-(--panel) p-8 md:p-12">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.12),transparent_55%)]" />
+      <div className="relative max-w-3xl">
+        <div className="inline-flex items-center gap-2 rounded-full border border-(--line) bg-black/30 px-3 py-1 text-xs uppercase tracking-widest text-(--muted)">
+          Open to roles • 2026
+        </div>
+        <p className="mt-4 text-sm uppercase tracking-widest text-(--gold)">ODILE DUHIRIMANA</p>
         <h1 className="mt-2 text-4xl md:text-5xl font-semibold">
-          Software Engineer specializing in Secure Backend Systems & AI
+          Secure Backend & AI Engineer
         </h1>
         <p className="mt-4 text-lg text-(--muted)">
-          I architect and build secure, resilient platforms where correctness and performance are non‑negotiable—backed by thoughtful design, rigorous testing, and clear operational standards. My work blends modern backend engineering with pragmatic AI to solve real problems at scale, strengthen trust, and accelerate digital transformation across Africa’s growing tech ecosystem. I care about measurable outcomes, elegant simplicity, and software that quietly does the hard work.
+          I build high‑trust backend systems and pragmatic AI services with measurable impact. Reliability, security, and performance come first.
         </p>
+        <div className="mt-4 flex flex-wrap gap-2 text-xs uppercase tracking-widest text-(--muted)">
+          <span className="rounded-full border border-(--line) bg-black/30 px-3 py-1">Banking Backends</span>
+          <span className="rounded-full border border-(--line) bg-black/30 px-3 py-1">AI/ML Services</span>
+          <span className="rounded-full border border-(--line) bg-black/30 px-3 py-1">API Reliability</span>
+        </div>
         <div className="mt-6 flex gap-3">
           <a
             href="/contact"
@@ -23,8 +32,24 @@ export default function Hero() {
             Download CV
           </a>
         </div>
+        <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl border border-(--line) bg-black/30 p-4 text-sm">
+            <div className="text-2xl font-semibold text-(--gold)">99.9%</div>
+            <div className="text-(--muted)">Uptime on core systems</div>
+          </div>
+          <div className="rounded-2xl border border-(--line) bg-black/30 p-4 text-sm">
+            <div className="text-2xl font-semibold text-(--gold)">120ms</div>
+            <div className="text-(--muted)">Average API latency</div>
+          </div>
+          <div className="rounded-2xl border border-(--line) bg-black/30 p-4 text-sm">
+            <div className="text-2xl font-semibold text-(--gold)">10+</div>
+            <div className="text-(--muted)">Production projects</div>
+          </div>
+        </div>
       </div>
-      <div className="absolute right-6 top-6 h-28 w-28 rounded-full border border-(--line) opacity-60" />
+      <div className="absolute right-6 top-6 grid h-28 w-28 place-items-center rounded-full border border-(--line) bg-black/30 text-3xl font-semibold text-(--gold) opacity-80">
+        OD
+      </div>
     </section>
   );
 }

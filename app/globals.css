@@ -9,6 +9,7 @@
   /* Pure gold accent (no yellow tones) */
   --gold: #D4AF37;
   --purple: #6E56CF;
+  --accent: #3BB6A1;
   --line: #1B1C24;
   --success: #2FBF71;
   --danger: #F05454;
@@ -33,6 +34,37 @@ html {
 
 body {
   font-family: var(--font-body), ui-sans-serif, system-ui;
+  position: relative;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 800px at 80% -10%, rgba(59,182,161,0.10), transparent 60%),
+    radial-gradient(900px 700px at -10% 20%, rgba(212,175,55,0.12), transparent 55%),
+    linear-gradient(180deg, #0B0B10 0%, #0A0C12 50%, #090A10 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.08;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+  opacity: 0.06;
+  z-index: -1;
 }
 
 h1, h2, h3, h4, h5, h6 {

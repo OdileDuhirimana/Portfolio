@@ -3,10 +3,7 @@ export default function Hero() {
     <section className="relative overflow-hidden rounded-3xl border border-(--line) bg-(--panel) p-8 md:p-12">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.12),transparent_55%)]" />
       <div className="relative max-w-3xl">
-        <div className="inline-flex items-center gap-2 rounded-full border border-(--line) bg-black/30 px-3 py-1 text-xs uppercase tracking-widest text-(--muted)">
-          Open to roles • 2026
-        </div>
-        <p className="mt-4 text-sm uppercase tracking-widest text-(--gold)">ODILE DUHIRIMANA</p>
+        <p className="text-sm uppercase tracking-widest text-(--gold)">ODILE DUHIRIMANA</p>
         <h1 className="mt-2 text-4xl md:text-5xl font-semibold">
           Secure Backend & AI Engineer
         </h1>

@@ -71,23 +71,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mt-10">
-        <h2 className="text-2xl font-semibold mb-4">Queenpin Stats</h2>
-        <div className="grid gap-6 sm:grid-cols-3">
-          <div className="rounded-2xl border border-(--line) bg-(--panel) p-6 text-center">
-            <div className="text-3xl font-semibold text-(--gold)">99.9%</div>
-            <div className="text-(--muted)">Uptime on core systems</div>
-          </div>
-          <div className="rounded-2xl border border-(--line) bg-(--panel) p-6 text-center">
-            <div className="text-3xl font-semibold text-(--gold)">120ms</div>
-            <div className="text-(--muted)">Avg API latency</div>
-          </div>
-          <div className="rounded-2xl border border-(--line) bg-(--panel) p-6 text-center">
-            <div className="text-3xl font-semibold text-(--gold)">10+ </div>
-            <div className="text-(--muted)">Production projects</div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }

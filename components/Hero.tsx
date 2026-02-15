@@ -32,23 +32,17 @@ export default function Hero() {
             Download CV
           </a>
         </div>
-        <div className="mt-8 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl border border-(--line) bg-black/30 p-4 text-sm">
-            <div className="text-2xl font-semibold text-(--gold)">99.9%</div>
-            <div className="text-(--muted)">Uptime on core systems</div>
-          </div>
-          <div className="rounded-2xl border border-(--line) bg-black/30 p-4 text-sm">
-            <div className="text-2xl font-semibold text-(--gold)">120ms</div>
-            <div className="text-(--muted)">Average API latency</div>
-          </div>
-          <div className="rounded-2xl border border-(--line) bg-black/30 p-4 text-sm">
-            <div className="text-2xl font-semibold text-(--gold)">10+</div>
-            <div className="text-(--muted)">Production projects</div>
-          </div>
-        </div>
       </div>
-      <div className="absolute right-6 top-6 grid h-28 w-28 place-items-center rounded-full border border-(--line) bg-black/30 text-3xl font-semibold text-(--gold) opacity-80">
-        OD
+      <div className="absolute right-6 top-6 h-28 w-28">
+        <div className="hero-mark">
+          <div className="hero-mark__core">OD</div>
+          <span className="hero-mark__orbit hero-mark__orbit--one">
+            <span className="hero-mark__dot" />
+          </span>
+          <span className="hero-mark__orbit hero-mark__orbit--two">
+            <span className="hero-mark__dot" />
+          </span>
+        </div>
       </div>
     </section>
   );

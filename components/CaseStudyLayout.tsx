@@ -1,5 +1,4 @@
 import { TechBadge } from "@/components/TechBadge";
-import { MetricBadge } from "@/components/MetricBadge";
 
 export default function CaseStudyLayout({
   project,
@@ -20,7 +19,7 @@ export default function CaseStudyLayout({
     highlights?: string[];
   };
 }) {
-  const impact = project.outcomes?.[0] || (project.metrics?.[0] ? `${project.metrics[0].value} ${project.metrics[0].label}` : undefined);
+  const impact = project.outcomes?.[0];
   const approach = project.highlights?.slice(0, 2) || [];
   return (
     <main className="container mx-auto px-6 md:px-8 py-10">
@@ -28,9 +27,6 @@ export default function CaseStudyLayout({
         <h1 className="text-4xl font-semibold">{project.title}</h1>
         <p className="mt-2 text-(--muted)">{project.tagline}</p>
         <div className="mt-3 flex flex-wrap gap-2">{project.tech.map(t => <TechBadge key={t} label={t} />)}</div>
-        {project.metrics?.length ? (
-          <div className="mt-4 flex flex-wrap gap-2">{project.metrics.map((m, i) => <MetricBadge key={i} {...m} />)}</div>
-        ) : null}
         <div className="mt-4 flex gap-3">
           {project.liveUrl ? <a href={project.liveUrl} className="rounded-lg border px-3 py-2">Live Demo</a> : null}
           {project.repoUrl ? <a href={project.repoUrl} className="rounded-lg border px-3 py-2">Source Code</a> : null}

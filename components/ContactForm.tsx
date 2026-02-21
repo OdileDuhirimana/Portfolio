@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -13,11 +14,28 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export default function ContactForm() {
+  const [submitMessage, setSubmitMessage] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const { register, handleSubmit, formState: { errors, isSubmitting }, reset } = useForm<FormData>({ resolver: zodResolver(schema) });
+
   const onSubmit = async (data: FormData) => {
     if (data.honey) return; // spam honeypot
-    console.log("contact submission", data);
-    alert("Thanks! Your message has been recorded locally.");
+    setSubmitError(null);
+    setSubmitMessage(null);
+
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    const result = await res.json().catch(() => ({}));
+    if (!res.ok || !result.ok) {
+      setSubmitError(result.error || "Could not send your message. Please try again.");
+      return;
+    }
+
+    setSubmitMessage("Message sent successfully. I will get back to you soon.");
     reset();
   };
 
@@ -42,6 +60,8 @@ export default function ContactForm() {
         {errors.message && <p className="text-sm text-(--danger)">{errors.message.message}</p>}
       </div>
       <button type="submit" disabled={isSubmitting} className="rounded-xl bg-(--gold) text-black px-5 py-3 font-medium disabled:opacity-70">Send</button>
+      {submitMessage ? <p className="text-sm text-(--success)">{submitMessage}</p> : null}
+      {submitError ? <p className="text-sm text-(--danger)">{submitError}</p> : null}
     </form>
   );
 }

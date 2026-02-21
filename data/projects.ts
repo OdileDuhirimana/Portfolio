@@ -163,6 +163,34 @@ export const projects: Project[] = [
     duration: "2026"
   },
   {
+    title: "Vitals CareOps",
+    slug: "vitals-careops",
+    category: "fullstack",
+    tagline: "Healthcare operations platform for enrollments, attendance, and medication dispensation.",
+    tech: ["Next.js","TypeScript","NestJS","TypeORM","PostgreSQL","JWT","Swagger"],
+    highlights: [
+      "Role-based access control for Admin, Healthcare Staff, and Guest users",
+      "Duplicate-prevention logic for medication collection using bucketed unique constraints",
+      "Program analytics and activity audit trails for operational visibility"
+    ],
+    metrics: [
+      { label: "Seeded records", value: "120 patients" },
+      { label: "Roles", value: "3 RBAC levels" }
+    ],
+    repoUrl: "https://github.com/OdileDuhirimana/health-tracker",
+    role: "Full-Stack Developer",
+    duration: "2026",
+    responsibilities: [
+      "Built role-aware frontend modules for dashboard, attendance, and dispensation workflows",
+      "Implemented NestJS APIs with TypeORM entities, migrations, and validation",
+      "Designed safeguards against duplicate medication dispensation and added audit logging"
+    ],
+    outcomes: [
+      "Reduced manual tracking errors through structured program and medication workflows",
+      "Improved accountability with role-scoped access and complete activity history"
+    ]
+  },
+  {
     title: "eFiche Team Dashboard",
     slug: "efiche-dashboard",
     category: "backend",

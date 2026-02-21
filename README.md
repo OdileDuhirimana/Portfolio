@@ -16,6 +16,56 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Contact Form Email Setup
+
+The contact form posts to `POST /api/contact` and sends email via Resend.
+
+1. Copy env template:
+
+```bash
+cp .env.example .env.local
+```
+
+2. Set:
+
+- `RESEND_API_KEY`
+- `CONTACT_FROM_EMAIL` (must be a verified sender in your Resend account)
+- `CONTACT_TO_EMAIL` (defaults to `odileduhirimana@gmail.com`)
+
+## Deployment
+
+### Vercel (recommended)
+
+Set these environment variables in your Vercel project:
+
+- `RESEND_API_KEY`
+- `CONTACT_FROM_EMAIL`
+- `CONTACT_TO_EMAIL` (or keep default)
+- `NEXT_PUBLIC_SITE_URL` (your production domain, e.g. `https://your-domain.com`)
+
+Then deploy:
+
+```bash
+vercel --prod
+```
+
+Health endpoint:
+
+- `GET /api/health`
+
+### Docker
+
+Build and run:
+
+```bash
+docker build -t odile-portfolio .
+docker run --env-file .env -p 3000:3000 odile-portfolio
+```
+
+Container healthcheck targets:
+
+- `GET /api/health`
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

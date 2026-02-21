@@ -21,19 +21,20 @@ import {
   Layers,
   LineChart,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 const GOLD = "#D4AF37";
 const SIZE = 44; // ~ h-11
 const STROKE = 1.5;
 
-const byCategoryIcon: Record<Category, React.ComponentType<any>> = {
+const byCategoryIcon: Record<Category, LucideIcon> = {
   backend: Server,
   frontend: LayoutGrid,
   fullstack: Layers,
   ml: Brain,
 };
 
-const bySlug: Record<string, React.ComponentType<any>> = {
+const bySlug: Record<string, LucideIcon> = {
   "nova-bank-core": Landmark,
   "edusync-lms": GraduationCap,
   "careflow-api": HeartPulse,
@@ -48,6 +49,7 @@ const bySlug: Record<string, React.ComponentType<any>> = {
   skillbridge: Briefcase,
   safeshop: ShoppingCart,
   campusconnect: UsersRound,
+  sentiana: MessageCircle,
   sentimentscope: MessageCircle,
   "fraudguard-ml": ShieldCheck,
   predictwise: Brain,

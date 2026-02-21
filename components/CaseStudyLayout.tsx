@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { TechBadge } from "@/components/TechBadge";
 
 export default function CaseStudyLayout({
@@ -71,7 +72,13 @@ export default function CaseStudyLayout({
       {project.architectureDiagram ? (
         <section className="mt-8">
           <h2 className="text-2xl font-semibold mb-3">Architecture</h2>
-          <img src={project.architectureDiagram} alt="Architecture diagram" className="rounded-xl border border-(--line)" />
+          <Image
+            src={project.architectureDiagram}
+            alt="Architecture diagram"
+            width={1600}
+            height={900}
+            className="h-auto w-full rounded-xl border border-(--line)"
+          />
         </section>
       ) : null}
 
@@ -89,7 +96,14 @@ export default function CaseStudyLayout({
           <h2 className="text-2xl font-semibold mb-3">Screens</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {project.images.map((src, i) => (
-              <img key={i} src={src} alt={`Screenshot ${i+1} of ${project.title}`} className="rounded-xl border border-(--line)" />
+              <Image
+                key={i}
+                src={src}
+                alt={`Screenshot ${i+1} of ${project.title}`}
+                width={1280}
+                height={720}
+                className="h-auto w-full rounded-xl border border-(--line)"
+              />
             ))}
           </div>
         </section>

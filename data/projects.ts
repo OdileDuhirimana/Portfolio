@@ -28,139 +28,63 @@ export const projects: Project[] = [
     title: "NOVA Bank Core",
     slug: "nova-bank-core",
     category: "backend",
-    tagline: "Enterprise-grade digital banking backend with MFA and fraud monitoring.",
-    tech: ["Java","Spring Boot","PostgreSQL","Redis","Docker","JWT"],
+    tagline: "API-first digital banking backend with secure transaction flows and auditability.",
+    tech: ["Java","Spring Boot","PostgreSQL","Spring Security","JWT","Docker"],
     highlights: [
-      "Multi-factor authentication, RBAC, audit trails",
-      "Real-time transaction monitoring & anomaly flags",
-      "Idempotent transfers with saga-like safety for consistency"
+      "Role-based access for ADMIN, CUSTOMER, and AUDITOR with JWT authentication",
+      "Transfer idempotency, account freeze controls, and CSV statements",
+      "Audit and fraud oversight endpoints with Swagger-documented APIs"
     ],
-    metrics: [
-      { label: "Uptime", value: "99.9%" },
-      { label: "Avg TX latency", value: "120ms" }
-    ],
-    liveUrl: "https://demo.nova.example",
-    repoUrl: "https://github.com/your/nova-bank-core",
-    duration: "2025",
-    role: "Backend Engineer",
-    responsibilities: [
-      "Designed domain model and transactional boundaries",
-      "Implemented OAuth2/JWT security and audit logging",
-      "Wrote integration tests (Testcontainers) and CI"
-    ],
-    outcomes: [
-      "Secure, scalable core with clean separation of concerns",
-      "Reduced fraudulent attempts via rule-based filters"
-    ],
-    architectureDiagram: "/images/diagrams/nova.png"
+    repoUrl: "https://github.com/OdileDuhirimana/NovaBank"
   },
   {
     title: "EduSync LMS Backend",
     slug: "edusync-lms",
     category: "backend",
-    tagline: "Modular LMS with microservices and student analytics.",
-    tech: ["Java","Spring Boot","MongoDB","Kafka","Keycloak","Docker"],
+    tagline: "Modular LMS backend scaffold using a Spring Boot multi-service architecture.",
+    tech: ["Java","Spring Boot","Spring Cloud Gateway","Maven","Docker","MongoDB"],
     highlights: [
-      "Course, grading, and analytics services decoupled via Kafka",
-      "Keycloak SSO/JWT for multi-role access",
-      "Async grading pipeline with retry/backoff"
-    ],
-    metrics: [
-      { label: "Throughput", value: "3k req/min" },
-      { label: "P95 latency", value: "180ms" }
-    ],
-    liveUrl: "https://demo.edusync.example",
-    repoUrl: "https://github.com/your/edusync-lms",
-    duration: "2025",
-    role: "Backend Engineer",
-    outcomes: [
-      "Scalable analytics for educators",
-      "Stable under spikes during exam weeks"
-    ],
-    architectureDiagram: "/images/diagrams/edusync.png"
+      "Separate services for auth, users, courses, enrollment, grading, and analytics",
+      "Gateway-first API design with OpenAPI docs and Dockerized local orchestration",
+      "Render blueprint support for multi-service deployment"
+    ]
   },
   {
     title: "CareFlow API",
     slug: "careflow-api",
     category: "backend",
-    tagline: "Django REST backend with ML health-risk predictions.",
-    tech: ["Python","Django REST","PostgreSQL","Celery","Redis","scikit-learn"],
+    tagline: "Django REST healthcare API with explainable triage scoring and hospital workflows.",
+    tech: ["Python","Django","Django REST Framework","PostgreSQL","SimpleJWT","Docker"],
     highlights: [
-      "Secure patient records with field-level permissions",
-      "ML inference endpoint with SHAP explanations",
-      "Async data import and report generation via Celery"
-    ],
-    metrics: [
-      { label: "AUC (risk model)", value: "0.89" }
-    ],
-    liveUrl: "https://demo.careflow.example",
-    repoUrl: "https://github.com/your/careflow-api",
-    role: "Backend + ML",
-    architectureDiagram: "/images/diagrams/careflow.png"
+      "Explainable triage assessment with stored risk history and high-risk alerts",
+      "End-to-end care operations: admissions, beds, referrals, labs, and medication orders",
+      "Workflow automation with domain events plus analytics and CSV exports"
+    ]
   },
   {
     title: "Gatherly",
     slug: "gatherly",
     category: "backend",
-    tagline: "Event management API with payments and real-time analytics.",
-    tech: ["Node.js","Express","MySQL","Stripe","Docker","JWT"],
+    tagline: "Event management API with ticketing, payments, safety tooling, and compliance endpoints.",
+    tech: ["Node.js","Express","Sequelize","MySQL/PostgreSQL","Stripe","Docker"],
     highlights: [
-      "Ticketing, attendee management, and check-in webhooks",
-      "Stripe integration with webhook signature verification",
-      "Admin analytics endpoints (occupancy, revenue, churn)"
+      "Waitlist auto-promotion, scholarship workflows, and signed QR anti-fraud check-ins",
+      "Risk scoring for purchases with refund policy previews and alert queues",
+      "Privacy/compliance APIs with consent logs, retention jobs, and outbox retries"
     ],
-    metrics: [
-      { label: "Peak registrations/min", value: "250" }
-    ],
-    liveUrl: "https://demo.gatherly.example",
-    repoUrl: "https://github.com/your/gatherly",
-    architectureDiagram: "/images/diagrams/gatherly.png"
+    repoUrl: "https://github.com/OdileDuhirimana/Gatherly"
   },
   {
-    title: "Trackella",
+    title: "Trackella API",
     slug: "trackella",
     category: "backend",
-    tagline: "Secure expense tracker API with insights and budgets.",
-    tech: ["Node.js","NestJS","MongoDB","JWT","Winston","Docker"],
+    tagline: "Personal finance backend focused on insights, planning automation, and deployment reliability.",
+    tech: ["Node.js","Express","MySQL","JWT","Swagger","Docker"],
     highlights: [
-      "Aggregation pipelines for category insights",
-      "Budget alerts via email worker",
-      "Structured logging, request tracing, and rate limiting"
-    ],
-    metrics: [
-      { label: "Insight latency", value: "<200ms" }
-    ],
-    liveUrl: "https://demo.trackella.example",
-    repoUrl: "https://github.com/your/trackella",
-    architectureDiagram: "/images/diagrams/trackella.png"
-  },
-  {
-    title: "eFiche Mobile",
-    slug: "efiche-mobile",
-    category: "frontend",
-    tagline: "Mobile app feature development and performance improvements.",
-    tech: ["Flutter","Dart"],
-    highlights: [
-      "Delivered new mobile features with a focus on UX and stability",
-      "Optimized screens and flows for smoother performance",
-      "Collaborated with product and QA to iterate on feedback"
-    ],
-    role: "Mobile Developer (Intern)",
-    duration: "2026"
-  },
-  {
-    title: "eFiche Web Platform",
-    slug: "efiche-web",
-    category: "fullstack",
-    tagline: "Internal platform for workflows and operations.",
-    tech: ["Next.js","Laravel"],
-    highlights: [
-      "Implemented new web features and workflows",
-      "Integrated frontend with backend endpoints",
-      "Helped troubleshoot and ship production fixes"
-    ],
-    role: "Software Engineering Intern",
-    duration: "2026"
+      "Financial health scoring and anomaly detection endpoints for spending behavior",
+      "Savings goals and recurring expense automation with due-item processing",
+      "Data portability exports plus liveness/readiness checks and graceful shutdown"
+    ]
   },
   {
     title: "Vitals CareOps",
@@ -177,176 +101,103 @@ export const projects: Project[] = [
       { label: "Seeded records", value: "120 patients" },
       { label: "Roles", value: "3 RBAC levels" }
     ],
-    repoUrl: "https://github.com/OdileDuhirimana/health-tracker",
-    role: "Full-Stack Developer",
-    duration: "2026",
-    responsibilities: [
-      "Built role-aware frontend modules for dashboard, attendance, and dispensation workflows",
-      "Implemented NestJS APIs with TypeORM entities, migrations, and validation",
-      "Designed safeguards against duplicate medication dispensation and added audit logging"
-    ],
-    outcomes: [
-      "Reduced manual tracking errors through structured program and medication workflows",
-      "Improved accountability with role-scoped access and complete activity history"
-    ]
-  },
-  {
-    title: "eFiche Team Dashboard",
-    slug: "efiche-dashboard",
-    category: "backend",
-    tagline: "Performance analytics API for team dashboards.",
-    tech: ["Python","FastAPI"],
-    highlights: [
-      "Built APIs powering team performance views",
-      "Structured analytics endpoints for dashboard insights",
-      "Improved stability for reporting workflows"
-    ],
-    role: "Software Engineering Intern",
-    duration: "2026"
-  },
-  {
-    title: "FitSync",
-    slug: "fitsync",
-    category: "frontend",
-    tagline: "Flutter fitness app with goals, tracking, and live sync.",
-    tech: ["Flutter","Dart","Firebase Auth","Firestore","Cloud Functions"],
-    highlights: [
-      "Goal tracking & progress charts",
-      "Offline-first with local cache",
-      "Push notifications for streaks"
-    ],
-    liveUrl: "https://demo.fitsync.example",
-    repoUrl: "https://github.com/your/fitsync",
-    images: ["/images/fitsync-1.png","/images/fitsync-2.png"]
-  },
-  {
-    title: "CareConnect",
-    slug: "careconnect",
-    category: "frontend",
-    tagline: "React Native appointment booking with offline mode.",
-    tech: ["React Native","Expo","React Query","SQLite","FCM"],
-    highlights: [
-      "Book/reschedule with calendar sync",
-      "Dark mode + accessibility support",
-      "Offline queueing for actions"
-    ],
-    liveUrl: "https://demo.careconnect.example",
-    repoUrl: "https://github.com/your/careconnect",
-    images: ["/images/careconnect-1.png"]
-  },
-  {
-    title: "SkillBridge",
-    slug: "skillbridge",
-    category: "frontend",
-    tagline: "Career discovery React app with real-time listings.",
-    tech: ["React","Vite","TypeScript","Zustand","WebSocket"],
-    highlights: [
-      "Live job feed via WebSockets",
-      "Saved roles and notes",
-      "Responsive, keyboard-first navigation"
-    ],
-    liveUrl: "https://demo.skillbridge.example",
-    repoUrl: "https://github.com/your/skillbridge",
-    images: ["/images/skillbridge.png"]
-  },
- {
-  title: "SafeShop",
-  slug: "safeshop",       
-  category: "fullstack",
-  tagline: "Full‑stack e‑commerce with real‑time chat and AI recommendations/fraud scoring.",
-  tech: [
-    "React",
-    "Vite",
-    "Redux Toolkit",
-    "TailwindCSS",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "Redis",
-    "Socket.IO",
-    "FastAPI",
-    "Docker",
-    "Playwright"
-  ],
-    highlights: [
-    "AI microservice (FastAPI) for product recommendations and fraud scoring",
-    "Real-time chat & notifications via WebSocket (Socket.IO)",
-    "JWT auth with role-based access and basic rate limiting/helmet",
-    "Dockerized multi-service stack (frontend, backend, AI, MongoDB, Redis)"
-  ],
-    metrics: [
-    { "label": "E2E smoke tests", "value": "Chromium + Firefox passing" }
-  ],
-    liveUrl: "https://demo.safe.shop",
-    repoUrl: "https://github.com/your/safeshop",
-    architectureDiagram: "/images/diagrams/safeshop.png"  
+    repoUrl: "https://github.com/OdileDuhirimana/health-tracker"
   },
   {
     title: "CampusConnect",
     slug: "campusconnect",
     category: "fullstack",
-    tagline: "Student social platform with real-time chat.",
-    tech: ["React","Django","PostgreSQL","WebSockets","Redis"],
+    tagline: "Campus social platform with modular Django APIs and real-time student interactions.",
+    tech: ["React","Redux Toolkit","Django REST Framework","Django Channels","JWT","WebSockets"],
     highlights: [
-      "Groups, events, and chat with typing indicators",
-      "Image uploads + moderation queue",
-      "Scalable API and CDN-backed media"
-    ],
-    liveUrl: "https://demo.campusconnect.example",
-    repoUrl: "https://github.com/your/campusconnect",
-    architectureDiagram: "/images/diagrams/campusconnect.png"
+      "Modular apps for posts, events, clubs, chats, stories, polls, groups, and marketplace",
+      "Real-time communication and notifications via Channels-based socket infrastructure",
+      "Role-aware social workflows for students, club admins, and campus admins"
+    ]
   },
   {
-    title: "SentimentScope",
-    slug: "sentimentscope",
-    category: "ml",
-    tagline: "Transformer-based sentiment & emotion analysis (Kinyarwanda support).",
-    tech: ["Python","PyTorch","HuggingFace","FastAPI","Docker"],
+    title: "SafeShop",
+    slug: "safeshop",
+    category: "fullstack",
+    tagline: "AI-assisted e-commerce platform with real-time features and seller intelligence.",
+    tech: ["React","Vite","Node.js","Express","MongoDB","Redis","FastAPI","Socket.IO"],
     highlights: [
-      "Fine-tuned transformer with multilingual tokenizer",
-      "REST inference with batching & caching",
-      "Confidence scores + calibration"
+      "AI concierge, price-watch alerts, and checkout savings optimization",
+      "Trust scoring and inventory forecasting for seller-side operational insights",
+      "Integrated order lifecycle, returns flow, and event-driven notifications"
     ],
-    metrics: [
-      { label: "F1 (macro)", value: "0.87" }
-    ],
-    liveUrl: "https://demo.sentimentscope.example",
-    repoUrl: "https://github.com/your/sentimentscope"
+    repoUrl: "https://github.com/OdileDuhirimana/SafeShop"
+  },
+  {
+    title: "SkillBridge",
+    slug: "skillbridge",
+    category: "fullstack",
+    tagline: "Career ecosystem for jobs and internships with AI guidance and real-time collaboration.",
+    tech: ["React","Node.js","Express","MongoDB","Socket.IO","Tailwind CSS","OpenAI"],
+    highlights: [
+      "AI-driven job discovery, resume analysis, and career mentor workflows",
+      "Real-time recruiter-candidate messaging with application lifecycle tracking",
+      "Gamification and analytics dashboards for both candidates and employers"
+    ]
+  },
+  {
+    title: "FitSync",
+    slug: "fitsync",
+    category: "frontend",
+    tagline: "Flutter fitness app with real-time sync, progress analytics, and AI-style coaching.",
+    tech: ["Flutter","Dart","Firebase Auth","Firestore","Firebase Messaging","TensorFlow Lite"],
+    highlights: [
+      "Workout tracking with live sync and goal-based progress visualization",
+      "Offline-first logging using local storage with background cloud synchronization",
+      "Streak systems, wellness journaling, and personalized recommendation flows"
+    ]
+  },
+  {
+    title: "CareConnect Mobile",
+    slug: "careconnect",
+    category: "frontend",
+    tagline: "Cross-platform healthcare companion app for appointments, records, and wellness.",
+    tech: ["React Native","Expo","Firebase Auth","Firestore","FCM","Gemini API"],
+    highlights: [
+      "Appointment booking, doctor discovery, and real-time availability updates",
+      "In-app chat, reminders, and digital prescription/document workflows",
+      "AI symptom checker and wellness tracking experiences"
+    ]
+  },
+  {
+    title: "SentiAna",
+    slug: "sentiana",
+    category: "ml",
+    tagline: "Emotion intelligence API for sentiment, toxicity, sarcasm, and domain-aware analysis.",
+    tech: ["Python","FastAPI","Transformers","PyTorch","Redis","Docker"],
+    highlights: [
+      "Multi-label emotion inference with toxicity and sarcasm detection pipelines",
+      "WebSocket streaming and timeline APIs for real-time conversational monitoring",
+      "Domain modules for support, reviews, social safety, and mental-health signals"
+    ]
   },
   {
     title: "FraudGuard ML",
     slug: "fraudguard-ml",
     category: "ml",
-    tagline: "Anomaly detection for transactions with imbalanced learning.",
-    tech: ["Python","scikit-learn","LightGBM","Pandas","MLflow"],
+    tagline: "Transaction fraud scoring API with MFA challenge flows and audit tooling.",
+    tech: ["Python","FastAPI","SQLAlchemy","PyJWT","NumPy","Docker"],
     highlights: [
-      "SMOTE + threshold tuning for precision/recall",
-      "Isolation Forest + supervised ensemble",
-      "MLflow tracking for experiments"
-    ],
-    metrics: [
-      { label: "ROC-AUC", value: "0.96" },
-      { label: "PR-AUC", value: "0.81" }
-    ],
-    liveUrl: "https://demo.fraudguard.example",
-    repoUrl: "https://github.com/your/fraudguard"
+      "Risk scoring endpoints with alert tracking for suspicious transaction behavior",
+      "OTP challenge flow for high-risk transaction verification",
+      "Admin role management and audit log endpoints for operational oversight"
+    ]
   },
   {
     title: "PredictWise",
     slug: "predictwise",
     category: "ml",
-    tagline: "Student performance prediction with explainability.",
-    tech: ["Python","XGBoost","SHAP","Flask","Pydantic"],
+    tagline: "Student success intelligence platform combining ML predictions with actionable dashboards.",
+    tech: ["Python","Flask","Scikit-learn","XGBoost","SHAP","React"],
     highlights: [
-      "Feature engineering & k-fold CV",
-      "SHAP plots for stakeholder trust",
-      "Fast REST inference with schema validation"
-    ],
-    metrics: [
-      { label: "Accuracy", value: "92%" },
-      { label: "F1", value: "0.90" }
-    ],
-    liveUrl: "https://demo.predictwise.example",
-    repoUrl: "https://github.com/your/predictwise"
+      "Prediction and drift detection APIs with observability and rate limiting controls",
+      "Digital twin, wellness, voice-analysis, gamification, and alerts modules",
+      "Analytics/report endpoints for class, subject, and school-level interventions"
+    ]
   }
 ];

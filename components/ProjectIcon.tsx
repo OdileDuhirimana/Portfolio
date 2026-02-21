@@ -41,6 +41,7 @@ const bySlug: Record<string, React.ComponentType<any>> = {
   trackella: Wallet,
   "efiche-mobile": Smartphone,
   "efiche-web": Monitor,
+  "vitals-careops": HeartPulse,
   "efiche-dashboard": LayoutDashboard,
   fitsync: Dumbbell,
   careconnect: Stethoscope,

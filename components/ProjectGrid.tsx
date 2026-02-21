@@ -1,11 +1,12 @@
 "use client";
 import { motion, useReducedMotion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import ProjectCard from "@/components/ProjectCard";
 import type { Project } from "@/data/projects";
 
 export default function ProjectGrid({ items, variant = "simple" as const }: { items: Project[]; variant?: "simple" | "tech" }) {
   const reduce = useReducedMotion();
-  const item = reduce ? {} : {
+  const item: Variants | undefined = reduce ? undefined : {
     hidden: { opacity: 0, y: 10 },
     show: { opacity: 1, y: 0, transition: { duration: 0.32, ease: [0.25, 0.8, 0.25, 1] } },
   };
@@ -18,7 +19,7 @@ export default function ProjectGrid({ items, variant = "simple" as const }: { it
           initial={reduce ? undefined : "hidden"}
           whileInView={reduce ? undefined : "show"}
           viewport={{ once: true, margin: "-50px" }}
-          variants={item as any}
+          variants={item}
         >
           <ProjectCard
             variant={variant}

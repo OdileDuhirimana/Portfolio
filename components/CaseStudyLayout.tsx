@@ -10,6 +10,7 @@ export default function CaseStudyLayout({
     tech: string[];
     metrics?: { label: string; value: string }[];
     liveUrl?: string;
+    swaggerUrl?: string;
     repoUrl?: string;
     role?: string;
     duration?: string;
@@ -30,6 +31,7 @@ export default function CaseStudyLayout({
         <div className="mt-3 flex flex-wrap gap-2">{project.tech.map(t => <TechBadge key={t} label={t} />)}</div>
         <div className="mt-4 flex gap-3">
           {project.liveUrl ? <a href={project.liveUrl} className="rounded-lg border px-3 py-2">Live Demo</a> : null}
+          {project.swaggerUrl ? <a href={project.swaggerUrl} className="rounded-lg border px-3 py-2">Swagger</a> : null}
           {project.repoUrl ? <a href={project.repoUrl} className="rounded-lg border px-3 py-2">Source Code</a> : null}
         </div>
       </header>

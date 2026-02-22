@@ -12,6 +12,7 @@ export type Project = {
   highlights: Highlight[];
   metrics?: Metric[];
   liveUrl?: string;
+  swaggerUrl?: string;
   repoUrl?: string;
   caseStudy?: string;
   images?: string[];
@@ -35,6 +36,7 @@ export const projects: Project[] = [
       "Transfer idempotency, account freeze controls, and CSV statements",
       "Audit and fraud oversight endpoints with Swagger-documented APIs"
     ],
+    swaggerUrl: "https://github.com/OdileDuhirimana/NovaBank#swagger--api-docs",
     repoUrl: "https://github.com/OdileDuhirimana/NovaBank"
   },
   {
@@ -47,7 +49,9 @@ export const projects: Project[] = [
       "Separate services for auth, users, courses, enrollment, grading, and analytics",
       "Gateway-first API design with OpenAPI docs and Dockerized local orchestration",
       "Render blueprint support for multi-service deployment"
-    ]
+    ],
+    swaggerUrl: "https://github.com/OdileDuhirimana/EduSync#whats-included-now",
+    repoUrl: "https://github.com/OdileDuhirimana/EduSync"
   },
   {
     title: "CareFlow API",
@@ -59,7 +63,9 @@ export const projects: Project[] = [
       "Explainable triage assessment with stored risk history and high-risk alerts",
       "End-to-end care operations: admissions, beds, referrals, labs, and medication orders",
       "Workflow automation with domain events plus analytics and CSV exports"
-    ]
+    ],
+    swaggerUrl: "https://github.com/OdileDuhirimana/CareFlow#key-endpoints",
+    repoUrl: "https://github.com/OdileDuhirimana/CareFlow"
   },
   {
     title: "Gatherly",
@@ -72,6 +78,7 @@ export const projects: Project[] = [
       "Risk scoring for purchases with refund policy previews and alert queues",
       "Privacy/compliance APIs with consent logs, retention jobs, and outbox retries"
     ],
+    swaggerUrl: "https://github.com/OdileDuhirimana/Gatherly#api-docs-and-collection",
     repoUrl: "https://github.com/OdileDuhirimana/Gatherly"
   },
   {
@@ -84,7 +91,9 @@ export const projects: Project[] = [
       "Financial health scoring and anomaly detection endpoints for spending behavior",
       "Savings goals and recurring expense automation with due-item processing",
       "Data portability exports plus liveness/readiness checks and graceful shutdown"
-    ]
+    ],
+    swaggerUrl: "https://github.com/OdileDuhirimana/Trackella#api-docs",
+    repoUrl: "https://github.com/OdileDuhirimana/Trackella"
   },
   {
     title: "Vitals CareOps",
@@ -101,6 +110,7 @@ export const projects: Project[] = [
       { label: "Seeded records", value: "120 patients" },
       { label: "Roles", value: "3 RBAC levels" }
     ],
+    liveUrl: "https://github.com/OdileDuhirimana/health-tracker#deployment",
     repoUrl: "https://github.com/OdileDuhirimana/health-tracker"
   },
   {
@@ -113,7 +123,9 @@ export const projects: Project[] = [
       "Modular apps for posts, events, clubs, chats, stories, polls, groups, and marketplace",
       "Real-time communication and notifications via Channels-based socket infrastructure",
       "Role-aware social workflows for students, club admins, and campus admins"
-    ]
+    ],
+    liveUrl: "https://github.com/OdileDuhirimana/CampusConnect/tree/main/frontend",
+    repoUrl: "https://github.com/OdileDuhirimana/CampusConnect"
   },
   {
     title: "SafeShop",
@@ -126,6 +138,7 @@ export const projects: Project[] = [
       "Trust scoring and inventory forecasting for seller-side operational insights",
       "Integrated order lifecycle, returns flow, and event-driven notifications"
     ],
+    liveUrl: "https://github.com/OdileDuhirimana/SafeShop#quick-start-docker",
     repoUrl: "https://github.com/OdileDuhirimana/SafeShop"
   },
   {

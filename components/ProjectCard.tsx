@@ -12,13 +12,14 @@ type Props = {
   highlights: string[];
   metrics?: { label: string; value: string }[];
   liveUrl?: string;
+  swaggerUrl?: string;
   repoUrl?: string;
   slug: string;
   category: import("@/data/projects").Category;
 };
 
 export default function ProjectCard(props: Props) {
-  const { title, tagline, tech, highlights, liveUrl, repoUrl, slug, category } = props;
+  const { title, tagline, tech, highlights, liveUrl, swaggerUrl, repoUrl, slug, category } = props;
   const coverMap: Record<Props["category"], { label: string }> = {
     backend: { label: "Backend Systems" },
     frontend: { label: "Frontend Experience" },
@@ -27,7 +28,6 @@ export default function ProjectCard(props: Props) {
   };
   const cover = coverMap[category];
   const reduce = useReducedMotion();
-  const liveLabel = category === "backend" ? "Swagger" : "Live Demo";
   return (
     <motion.article
       layout
@@ -62,7 +62,13 @@ export default function ProjectCard(props: Props) {
         {liveUrl && (
           <a className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm hover:bg-white/5"
              href={liveUrl} target="_blank" rel="noreferrer">
-            <ExternalLink className="w-4 h-4" /> {liveLabel}
+            <ExternalLink className="w-4 h-4" /> Live Demo
+          </a>
+        )}
+        {swaggerUrl && (
+          <a className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm hover:bg-white/5"
+             href={swaggerUrl} target="_blank" rel="noreferrer">
+            <ExternalLink className="w-4 h-4" /> Swagger
           </a>
         )}
         {repoUrl && (

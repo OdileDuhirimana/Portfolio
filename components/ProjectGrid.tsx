@@ -31,6 +31,7 @@ export default function ProjectGrid({ items, variant = "simple" as const }: { it
             highlights={p.highlights}
             metrics={p.metrics}
             liveUrl={p.liveUrl}
+            swaggerUrl={p.swaggerUrl}
             repoUrl={p.repoUrl}
           />
         </motion.div>

@@ -110,7 +110,7 @@ export const projects: Project[] = [
       { label: "Seeded records", value: "120 patients" },
       { label: "Roles", value: "3 RBAC levels" }
     ],
-    liveUrl: "https://github.com/OdileDuhirimana/health-tracker#deployment",
+    liveUrl: "https://vitals-zeta.vercel.app",
     repoUrl: "https://github.com/OdileDuhirimana/health-tracker"
   },
   {
@@ -124,7 +124,7 @@ export const projects: Project[] = [
       "Real-time communication and notifications via Channels-based socket infrastructure",
       "Role-aware social workflows for students, club admins, and campus admins"
     ],
-    liveUrl: "https://github.com/OdileDuhirimana/CampusConnect/tree/main/frontend",
+    liveUrl: "https://campus-connect-smoky.vercel.app",
     repoUrl: "https://github.com/OdileDuhirimana/CampusConnect"
   },
   {
@@ -138,7 +138,7 @@ export const projects: Project[] = [
       "Trust scoring and inventory forecasting for seller-side operational insights",
       "Integrated order lifecycle, returns flow, and event-driven notifications"
     ],
-    liveUrl: "https://github.com/OdileDuhirimana/SafeShop#quick-start-docker",
+    liveUrl: "https://safe-shop-iota.vercel.app/",
     repoUrl: "https://github.com/OdileDuhirimana/SafeShop"
   },
   {
@@ -151,7 +151,8 @@ export const projects: Project[] = [
       "AI-driven job discovery, resume analysis, and career mentor workflows",
       "Real-time recruiter-candidate messaging with application lifecycle tracking",
       "Gamification and analytics dashboards for both candidates and employers"
-    ]
+    ],
+    liveUrl: "https://skill-bridge-swart-alpha.vercel.app/"
   },
   {
     title: "FitSync",

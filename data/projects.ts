@@ -1,3 +1,6 @@
+const HF_USER = process.env.NEXT_PUBLIC_HF_USER ?? "";
+const hf = (slug: string) => `https://${HF_USER}-${slug}.hf.space`;
+
 export type Category = "backend" | "frontend" | "fullstack" | "ml";
 
 export type Metric = { label: string; value: string };
@@ -65,8 +68,8 @@ export const projects: Project[] = [
       "End-to-end care operations: admissions, beds, referrals, labs, and medication orders",
       "Workflow automation with domain events plus analytics and CSV exports"
     ],
-    liveUrl: "https://odile001-careflow-api.hf.space",
-    swaggerUrl: "https://odile001-careflow-api.hf.space/api/docs/",
+    liveUrl: hf("careflow-api"),
+    swaggerUrl: `${hf("careflow-api")}/api/docs/`,
     repoUrl: "https://github.com/OdileDuhirimana/CareFlow"
   },
   {
@@ -80,8 +83,8 @@ export const projects: Project[] = [
       "Risk scoring for purchases with refund policy previews and alert queues",
       "Privacy/compliance APIs with consent logs, retention jobs, and outbox retries"
     ],
-    liveUrl: "https://odile001-gatherly-api.hf.space",
-    swaggerUrl: "https://odile001-gatherly-api.hf.space/api/docs",
+    liveUrl: hf("gatherly-api"),
+    swaggerUrl: `${hf("gatherly-api")}/api/docs`,
     repoUrl: "https://github.com/OdileDuhirimana/Gatherly"
   },
   {
@@ -196,8 +199,8 @@ export const projects: Project[] = [
       "WebSocket streaming and timeline APIs for real-time conversational monitoring",
       "Domain modules for support, reviews, social safety, and mental-health signals"
     ],
-    liveUrl: "https://odile001-sentiana-api.hf.space",
-    swaggerUrl: "https://odile001-sentiana-api.hf.space/docs",
+    liveUrl: hf("sentiana-api"),
+    swaggerUrl: `${hf("sentiana-api")}/docs`,
     repoUrl: "https://github.com/OdileDuhirimana/SentiAna"
   },
   {
@@ -211,8 +214,8 @@ export const projects: Project[] = [
       "OTP challenge flow for high-risk transaction verification",
       "Admin role management and audit log endpoints for operational oversight"
     ],
-    liveUrl: "https://odile001-fraudguard-api.hf.space",
-    swaggerUrl: "https://odile001-fraudguard-api.hf.space/docs",
+    liveUrl: hf("fraudguard-api"),
+    swaggerUrl: `${hf("fraudguard-api")}/docs`,
     repoUrl: "https://github.com/OdileDuhirimana/FraudGuard"
   },
   {
@@ -226,8 +229,8 @@ export const projects: Project[] = [
       "Digital twin, wellness, voice-analysis, gamification, and alerts modules",
       "Analytics/report endpoints for class, subject, and school-level interventions"
     ],
-    liveUrl: "https://odile001-predictwise-api.hf.space",
-    swaggerUrl: "https://odile001-predictwise-api.hf.space/apidocs/",
+    liveUrl: hf("predictwise-api"),
+    swaggerUrl: `${hf("predictwise-api")}/apidocs/`,
     repoUrl: "https://github.com/OdileDuhirimana/PredictWise"
   }
 ];

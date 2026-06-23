@@ -36,7 +36,8 @@ export const projects: Project[] = [
       "Transfer idempotency, account freeze controls, and CSV statements",
       "Audit and fraud oversight endpoints with Swagger-documented APIs"
     ],
-    swaggerUrl: "https://github.com/OdileDuhirimana/NovaBank#swagger--api-docs",
+    liveUrl: "https://nova-bank-api.onrender.com",
+    swaggerUrl: "https://nova-bank-api.onrender.com/swagger-ui/index.html",
     repoUrl: "https://github.com/OdileDuhirimana/NovaBank"
   },
   {
@@ -139,6 +140,7 @@ export const projects: Project[] = [
       "Integrated order lifecycle, returns flow, and event-driven notifications"
     ],
     liveUrl: "https://safe-shop-iota.vercel.app/",
+    swaggerUrl: "https://safeshop-api.onrender.com/api/docs",
     repoUrl: "https://github.com/OdileDuhirimana/SafeShop"
   },
   {

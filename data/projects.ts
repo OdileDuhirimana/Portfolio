@@ -1,5 +1,6 @@
-const HF_USER = process.env.NEXT_PUBLIC_HF_USER ?? "";
-const hf = (slug: string) => `https://${HF_USER}-${slug}.hf.space`;
+const HF_USER = process.env.NEXT_PUBLIC_HF_USER;
+const hf = (slug: string): string | undefined =>
+  HF_USER ? `https://${HF_USER}-${slug}.hf.space` : undefined;
 
 export type Category = "backend" | "frontend" | "fullstack" | "ml";
 

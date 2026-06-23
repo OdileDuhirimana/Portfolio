@@ -1,6 +1,9 @@
-const HF_USER = process.env.NEXT_PUBLIC_HF_USER;
-const hf = (slug: string, path = ""): string | undefined =>
-  HF_USER ? `https://${HF_USER}-${slug}.hf.space${path}` : undefined;
+const HF_USER  = process.env.NEXT_PUBLIC_HF_USER;
+const HF_USER2 = process.env.NEXT_PUBLIC_HF_USER2;
+const hf  = (slug: string, path = ""): string | undefined =>
+  HF_USER  ? `https://${HF_USER}-${slug}.hf.space${path}`  : undefined;
+const hf2 = (slug: string, path = ""): string | undefined =>
+  HF_USER2 ? `https://${HF_USER2}-${slug}.hf.space${path}` : undefined;
 
 export type Category = "backend" | "frontend" | "fullstack" | "ml";
 
@@ -84,8 +87,8 @@ export const projects: Project[] = [
       "Risk scoring for purchases with refund policy previews and alert queues",
       "Privacy/compliance APIs with consent logs, retention jobs, and outbox retries"
     ],
-    liveUrl: hf("gatherly-api"),
-    swaggerUrl: hf("gatherly-api", "/api/docs"),
+    liveUrl: hf2("gatherly-api"),
+    swaggerUrl: hf2("gatherly-api", "/api/docs"),
     repoUrl: "https://github.com/OdileDuhirimana/Gatherly"
   },
   {
@@ -200,8 +203,8 @@ export const projects: Project[] = [
       "WebSocket streaming and timeline APIs for real-time conversational monitoring",
       "Domain modules for support, reviews, social safety, and mental-health signals"
     ],
-    liveUrl: hf("sentiana-api"),
-    swaggerUrl: hf("sentiana-api", "/docs"),
+    liveUrl: hf2("sentiana-api"),
+    swaggerUrl: hf2("sentiana-api", "/docs"),
     repoUrl: "https://github.com/OdileDuhirimana/SentiAna"
   },
   {

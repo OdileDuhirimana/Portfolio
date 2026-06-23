@@ -152,7 +152,8 @@ export const projects: Project[] = [
       "Real-time recruiter-candidate messaging with application lifecycle tracking",
       "Gamification and analytics dashboards for both candidates and employers"
     ],
-    liveUrl: "https://skill-bridge-swart-alpha.vercel.app/"
+    liveUrl: "https://skill-bridge-swart-alpha.vercel.app/",
+    repoUrl: "https://github.com/OdileDuhirimana/SkillBridge"
   },
   {
     title: "FitSync",
@@ -164,7 +165,8 @@ export const projects: Project[] = [
       "Workout tracking with live sync and goal-based progress visualization",
       "Offline-first logging using local storage with background cloud synchronization",
       "Streak systems, wellness journaling, and personalized recommendation flows"
-    ]
+    ],
+    repoUrl: "https://github.com/OdileDuhirimana/FitSync"
   },
   {
     title: "CareConnect Mobile",
@@ -176,7 +178,8 @@ export const projects: Project[] = [
       "Appointment booking, doctor discovery, and real-time availability updates",
       "In-app chat, reminders, and digital prescription/document workflows",
       "AI symptom checker and wellness tracking experiences"
-    ]
+    ],
+    repoUrl: "https://github.com/OdileDuhirimana/CareConnect"
   },
   {
     title: "SentiAna",
@@ -188,7 +191,8 @@ export const projects: Project[] = [
       "Multi-label emotion inference with toxicity and sarcasm detection pipelines",
       "WebSocket streaming and timeline APIs for real-time conversational monitoring",
       "Domain modules for support, reviews, social safety, and mental-health signals"
-    ]
+    ],
+    repoUrl: "https://github.com/OdileDuhirimana/SentiAna"
   },
   {
     title: "FraudGuard ML",
@@ -200,7 +204,8 @@ export const projects: Project[] = [
       "Risk scoring endpoints with alert tracking for suspicious transaction behavior",
       "OTP challenge flow for high-risk transaction verification",
       "Admin role management and audit log endpoints for operational oversight"
-    ]
+    ],
+    repoUrl: "https://github.com/OdileDuhirimana/FraudGuard"
   },
   {
     title: "PredictWise",
@@ -212,6 +217,7 @@ export const projects: Project[] = [
       "Prediction and drift detection APIs with observability and rate limiting controls",
       "Digital twin, wellness, voice-analysis, gamification, and alerts modules",
       "Analytics/report endpoints for class, subject, and school-level interventions"
-    ]
+    ],
+    repoUrl: "https://github.com/OdileDuhirimana/PredictWise"
   }
 ];

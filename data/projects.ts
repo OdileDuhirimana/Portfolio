@@ -1,6 +1,6 @@
 const HF_USER = process.env.NEXT_PUBLIC_HF_USER;
-const hf = (slug: string): string | undefined =>
-  HF_USER ? `https://${HF_USER}-${slug}.hf.space` : undefined;
+const hf = (slug: string, path = ""): string | undefined =>
+  HF_USER ? `https://${HF_USER}-${slug}.hf.space${path}` : undefined;
 
 export type Category = "backend" | "frontend" | "fullstack" | "ml";
 
@@ -70,7 +70,7 @@ export const projects: Project[] = [
       "Workflow automation with domain events plus analytics and CSV exports"
     ],
     liveUrl: hf("careflow-api"),
-    swaggerUrl: `${hf("careflow-api")}/api/docs/`,
+    swaggerUrl: hf("careflow-api", "/api/docs/"),
     repoUrl: "https://github.com/OdileDuhirimana/CareFlow"
   },
   {
@@ -85,7 +85,7 @@ export const projects: Project[] = [
       "Privacy/compliance APIs with consent logs, retention jobs, and outbox retries"
     ],
     liveUrl: hf("gatherly-api"),
-    swaggerUrl: `${hf("gatherly-api")}/api/docs`,
+    swaggerUrl: hf("gatherly-api", "/api/docs"),
     repoUrl: "https://github.com/OdileDuhirimana/Gatherly"
   },
   {
@@ -201,7 +201,7 @@ export const projects: Project[] = [
       "Domain modules for support, reviews, social safety, and mental-health signals"
     ],
     liveUrl: hf("sentiana-api"),
-    swaggerUrl: `${hf("sentiana-api")}/docs`,
+    swaggerUrl: hf("sentiana-api", "/docs"),
     repoUrl: "https://github.com/OdileDuhirimana/SentiAna"
   },
   {
@@ -216,7 +216,7 @@ export const projects: Project[] = [
       "Admin role management and audit log endpoints for operational oversight"
     ],
     liveUrl: hf("fraudguard-api"),
-    swaggerUrl: `${hf("fraudguard-api")}/docs`,
+    swaggerUrl: hf("fraudguard-api", "/docs"),
     repoUrl: "https://github.com/OdileDuhirimana/FraudGuard"
   },
   {
@@ -231,7 +231,7 @@ export const projects: Project[] = [
       "Analytics/report endpoints for class, subject, and school-level interventions"
     ],
     liveUrl: hf("predictwise-api"),
-    swaggerUrl: `${hf("predictwise-api")}/apidocs/`,
+    swaggerUrl: hf("predictwise-api", "/apidocs/"),
     repoUrl: "https://github.com/OdileDuhirimana/PredictWise"
   }
 ];

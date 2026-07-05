@@ -1,17 +1,17 @@
-export const metadata = {
-  title: "Odile Duhirimana — Secure Backend & AI Engineer",
-  description: "Premium portfolio showcasing backend, AI/ML, and full-stack projects.",
-};
-
 import Hero from "@/components/Hero";
 import SectionHeader from "@/components/SectionHeader";
 import ProjectGrid from "@/components/ProjectGrid";
 import { projects } from "@/data/projects";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata = buildPageMetadata({
+  description: "Premium portfolio showcasing backend, AI/ML, and full-stack projects.",
+});
 
 export default function HomePage() {
   const featured = projects.filter(p => ["backend","ml"].includes(p.category)).slice(0,6);
   return (
-    <main className="container mx-auto px-6 md:px-8 py-10">
+    <main id="main-content" className="container mx-auto px-6 md:px-8 py-10">
       <Hero />
       <section className="mt-12">
         <SectionHeader

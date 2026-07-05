@@ -37,6 +37,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# generated resume artifact — produced locally from resume.template.md +
+# data/resume-content.json + env vars via `npm run resume:generate` (see
+# scripts/generate-resume.mjs). Never commit a copy with real contact
+# details; resume.template.md is the tracked source of truth.
+/resume.md
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

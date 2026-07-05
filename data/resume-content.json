@@ -1,0 +1,40 @@
+{
+  "experience": [
+    {
+      "title": "Software Engineer",
+      "company": "eFiche",
+      "period": "March 2026 – Present",
+      "bullets": [
+        "Led the development of the eFiche Mobile App, driving fast delivery and maintaining high code quality standards throughout the project lifecycle.",
+        "Owned key features end-to-end — from requirement discussions to production deployment — demonstrating consistent ownership and reliability.",
+        "Contributed significantly to both backend (Laravel) and frontend (Next.js), ensuring seamless integration and a polished user experience.",
+        "Proactively identified and resolved blockers for the team, helping maintain development momentum and meeting delivery timelines.",
+        "Maintained rigorous coding standards and self-imposed quality gates, keeping bug rates low and the codebase clean.",
+        "Actively contributed ideas and technical solutions that supported eFiche's growth and product reliability."
+      ]
+    },
+    {
+      "title": "Software Engineering Intern",
+      "company": "eFiche",
+      "period": "Dec 2025 – March 2026",
+      "bullets": [
+        "Contributed to the development and improvement of the eFiche Mobile App and Team Performance Dashboard.",
+        "Supported ongoing projects within the team, collaborating across functions to implement features and troubleshoot issues.",
+        "Managed environment configurations and deployment tasks, ensuring updates and fixes were reflected in production.",
+        "Participated in requirement discussions, translating feedback into technical solutions and improvements."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Rwanda Coding Academy",
+      "program": "Software Programming & Embedded Systems",
+      "period": "2022 – 2025"
+    },
+    {
+      "institution": "Lycée Notre Dame de Citéaux",
+      "program": "O’Level",
+      "period": "2019 – 2021"
+    }
+  ]
+}

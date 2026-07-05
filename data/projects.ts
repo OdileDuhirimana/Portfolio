@@ -1,9 +1,22 @@
-const HF_USER  = process.env.NEXT_PUBLIC_HF_USER;
-const HF_USER2 = process.env.NEXT_PUBLIC_HF_USER2;
-const hf  = (slug: string, path = ""): string | undefined =>
-  HF_USER  ? `https://${HF_USER}-${slug}.hf.space${path}`  : undefined;
-const hf2 = (slug: string, path = ""): string | undefined =>
-  HF_USER2 ? `https://${HF_USER2}-${slug}.hf.space${path}` : undefined;
+import { siteConfig } from "@/lib/config/site";
+
+const makeHf = (user: string | undefined) => (slug: string, path = ""): string | undefined =>
+  user ? `https://${user}-${slug}.hf.space${path}` : undefined;
+
+const hf = makeHf(process.env.NEXT_PUBLIC_HF_USER);
+const hf2 = makeHf(process.env.NEXT_PUBLIC_HF_USER2);
+
+/**
+ * Per-repo GitHub link, built from the owner's public profile URL
+ * (`NEXT_PUBLIC_GITHUB_URL`, see lib/config/site.ts) rather than a
+ * hardcoded username. An earlier pass removed the personal name/email/
+ * phone literals from every page and component but missed that these
+ * `repoUrl`/`swaggerUrl` entries still spelled out the real GitHub
+ * username directly — undefined if the env var isn't configured, so a
+ * card simply omits its repo link instead of pointing at nothing.
+ */
+const repo = (name: string, path = ""): string | undefined =>
+  siteConfig.social.github ? `${siteConfig.social.github}/${name}${path}` : undefined;
 
 export type Category = "backend" | "frontend" | "fullstack" | "ml";
 
@@ -45,7 +58,7 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://nova-bank-api.onrender.com",
     swaggerUrl: "https://nova-bank-api.onrender.com/swagger-ui/index.html",
-    repoUrl: "https://github.com/OdileDuhirimana/NovaBank"
+    repoUrl: repo("NovaBank")
   },
   {
     title: "EduSync LMS Backend",
@@ -58,8 +71,8 @@ export const projects: Project[] = [
       "Gateway-first API design with OpenAPI docs and Dockerized local orchestration",
       "Render blueprint support for multi-service deployment"
     ],
-    swaggerUrl: "https://github.com/OdileDuhirimana/EduSync#whats-included-now",
-    repoUrl: "https://github.com/OdileDuhirimana/EduSync"
+    swaggerUrl: repo("EduSync", "#whats-included-now"),
+    repoUrl: repo("EduSync")
   },
   {
     title: "CareFlow API",
@@ -74,7 +87,7 @@ export const projects: Project[] = [
     ],
     liveUrl: hf("careflow-api"),
     swaggerUrl: hf("careflow-api", "/api/docs/"),
-    repoUrl: "https://github.com/OdileDuhirimana/CareFlow"
+    repoUrl: repo("CareFlow")
   },
   {
     title: "Gatherly",
@@ -89,7 +102,7 @@ export const projects: Project[] = [
     ],
     liveUrl: hf2("gatherly-api"),
     swaggerUrl: hf2("gatherly-api", "/api/docs"),
-    repoUrl: "https://github.com/OdileDuhirimana/Gatherly"
+    repoUrl: repo("Gatherly")
   },
   {
     title: "Trackella API",
@@ -102,8 +115,8 @@ export const projects: Project[] = [
       "Savings goals and recurring expense automation with due-item processing",
       "Data portability exports plus liveness/readiness checks and graceful shutdown"
     ],
-    swaggerUrl: "https://github.com/OdileDuhirimana/Trackella#api-docs",
-    repoUrl: "https://github.com/OdileDuhirimana/Trackella"
+    swaggerUrl: repo("Trackella", "#api-docs"),
+    repoUrl: repo("Trackella")
   },
   {
     title: "Vitals CareOps",
@@ -121,7 +134,7 @@ export const projects: Project[] = [
       { label: "Roles", value: "3 RBAC levels" }
     ],
     liveUrl: "https://vitals-zeta.vercel.app",
-    repoUrl: "https://github.com/OdileDuhirimana/health-tracker"
+    repoUrl: repo("health-tracker")
   },
   {
     title: "CampusConnect",
@@ -135,7 +148,7 @@ export const projects: Project[] = [
       "Role-aware social workflows for students, club admins, and campus admins"
     ],
     liveUrl: "https://campus-connect-smoky.vercel.app",
-    repoUrl: "https://github.com/OdileDuhirimana/CampusConnect"
+    repoUrl: repo("CampusConnect")
   },
   {
     title: "SafeShop",
@@ -150,7 +163,7 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://safe-shop-iota.vercel.app/",
     swaggerUrl: "https://safeshop-api.onrender.com/api/docs",
-    repoUrl: "https://github.com/OdileDuhirimana/SafeShop"
+    repoUrl: repo("SafeShop")
   },
   {
     title: "SkillBridge",
@@ -164,7 +177,7 @@ export const projects: Project[] = [
       "Gamification and analytics dashboards for both candidates and employers"
     ],
     liveUrl: "https://skill-bridge-swart-alpha.vercel.app/",
-    repoUrl: "https://github.com/OdileDuhirimana/SkillBridge"
+    repoUrl: repo("SkillBridge")
   },
   {
     title: "FitSync",
@@ -177,7 +190,7 @@ export const projects: Project[] = [
       "Offline-first logging using local storage with background cloud synchronization",
       "Streak systems, wellness journaling, and personalized recommendation flows"
     ],
-    repoUrl: "https://github.com/OdileDuhirimana/FitSync"
+    repoUrl: repo("FitSync")
   },
   {
     title: "CareConnect Mobile",
@@ -190,7 +203,7 @@ export const projects: Project[] = [
       "In-app chat, reminders, and digital prescription/document workflows",
       "AI symptom checker and wellness tracking experiences"
     ],
-    repoUrl: "https://github.com/OdileDuhirimana/CareConnect"
+    repoUrl: repo("CareConnect")
   },
   {
     title: "SentiAna",
@@ -205,7 +218,7 @@ export const projects: Project[] = [
     ],
     liveUrl: hf2("sentiana-api"),
     swaggerUrl: hf2("sentiana-api", "/docs"),
-    repoUrl: "https://github.com/OdileDuhirimana/SentiAna"
+    repoUrl: repo("SentiAna")
   },
   {
     title: "FraudGuard ML",
@@ -220,7 +233,7 @@ export const projects: Project[] = [
     ],
     liveUrl: hf("fraudguard-api"),
     swaggerUrl: hf("fraudguard-api", "/docs"),
-    repoUrl: "https://github.com/OdileDuhirimana/FraudGuard"
+    repoUrl: repo("FraudGuard")
   },
   {
     title: "PredictWise",
@@ -235,6 +248,6 @@ export const projects: Project[] = [
     ],
     liveUrl: hf("predictwise-api"),
     swaggerUrl: hf("predictwise-api", "/apidocs/"),
-    repoUrl: "https://github.com/OdileDuhirimana/PredictWise"
+    repoUrl: repo("PredictWise")
   }
 ];

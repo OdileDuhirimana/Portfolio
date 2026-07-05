@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import ThemeGlow from "@/components/ThemeGlow";
+import { buildPageMetadata } from "@/lib/seo";
 
 const heading = Space_Grotesk({
   variable: "--font-heading",
@@ -18,12 +19,7 @@ const body = Poppins({
   weight: ["400","500","600"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
-export const metadata: Metadata = {
-  title: "Odile Duhirimana — Secure Backend & AI Engineer",
-  description: "Portfolio showcasing backend, AI/ML, and full-stack projects.",
-  metadataBase: new URL(siteUrl),
-};
+export const metadata: Metadata = buildPageMetadata();
 
 export default function RootLayout({
   children,
@@ -33,6 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${heading.variable} ${body.variable} antialiased`} suppressHydrationWarning>
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-xl focus:bg-(--gold) focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-black"
+        >
+          Skip to main content
+        </a>
         <ThemeGlow />
         <Navbar />
         {children}

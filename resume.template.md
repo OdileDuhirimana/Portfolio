@@ -1,12 +1,14 @@
 ---
-title: "Odile Duhirimana — Resume"
+title: "{{OWNER_NAME}} — Resume"
 ---
 
 <div class="header">
-  <div class="header__name">Duhirimana Odile</div>
-  <div class="header__role">Secure Backend & AI Engineer</div>
-  <div class="header__meta">Rwanda · +250 798 980 237 · odileduhirimana@gmail.com</div>
-  <div class="header__meta">GitHub: github.com/OdileDuhirimana · X: @duhirimanaOdile</div>
+  <div class="header__name">{{OWNER_NAME}}</div>
+  <div class="header__role">{{OWNER_ROLE}}</div>
+  <div class="header__meta">{{OWNER_META}}</div>
+  <ul class="header__links">
+{{SOCIAL_LINKS}}
+</ul>
 </div>
 
 <div class="divider"></div>
@@ -14,7 +16,7 @@ title: "Odile Duhirimana — Resume"
 <section class="section">
 
 ## Professional Summary
-Software Engineer specializing in secure backend systems, AI, and full-stack development. Experienced in mobile development, data analytics, and building enterprise-grade solutions. Focused on scalable architectures, intelligent systems, and secure applications with measurable impact.
+Software Engineer specializing in secure backend systems, AI, and full-stack development. Experienced in mobile development, data analytics, and building enterprise-grade solutions. Known for unwavering discipline, deep dedication to craft, and a relentless commitment to delivering high-quality work. Approaches every project with ownership and precision — whether iterating on a feature or leading a team initiative — always focused on scalable architectures, intelligent systems, and solutions with measurable impact.
 
 </section>
 
@@ -46,17 +48,7 @@ Software Engineer specializing in secure backend systems, AI, and full-stack dev
 <section class="section">
 
 ## Professional Experience
-<div class="item">
-  <div class="item__title">Software Engineering Intern — eFiche</div>
-  <div class="item__meta">Feb 2026 – Present</div>
-  <ul>
-    <li>Contributed to the development and improvement of the eFiche Mobile App and Team Performance Dashboard</li>
-    <li>Supported other ongoing projects within the team, collaborating across functions to implement features and troubleshoot issues</li>
-    <li>Managed environment configurations and deployment tasks, ensuring updates and fixes were reflected in production</li>
-    <li>Participated in requirement discussions, translating feedback into technical solutions and improvements</li>
-  </ul>
-</div>
-
+{{EXPERIENCE_SECTION}}
 </section>
 
 <section class="section">
@@ -118,8 +110,7 @@ Software Engineer specializing in secure backend systems, AI, and full-stack dev
 
 ## Education
 <ul>
-  <li>Rwanda Coding Academy — Software Programming & Embedded Systems | 2022 – 2025</li>
-  <li>Lycée Notre Dame de Citéaux — O’Level | 2019 – 2021</li>
+{{EDUCATION_SECTION}}
 </ul>
 
 </section>
@@ -143,7 +134,8 @@ Software Engineer specializing in secure backend systems, AI, and full-stack dev
 ## Interests & Personal Growth
 <ul>
   <li>Strength Training & Gym Discipline</li>
-  <li>Financial Independence & Investing</li>
+  <li>Playing Piano</li>
+  <li>Financial Independence, Investing & Trading</li>
   <li>Creative Writing & Narrative Journaling</li>
   <li>Human Psychology & Emotional Intelligence</li>
   <li>Building Tech with Social Impact</li>

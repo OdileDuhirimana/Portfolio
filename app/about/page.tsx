@@ -1,13 +1,17 @@
+import { skills } from "@/data/skills";
+import { education, experience } from "@/data/resume-content";
+import { siteConfig } from "@/lib/config/site";
+
 export const metadata = {
-  title: "About — Odile Duhirimana",
+  title: `About — ${siteConfig.ownerName}`,
   description: "Bio, skills, and Queenpin Stats highlighting impact and expertise.",
 };
 
-import { skills } from "@/data/skills";
-
 export default function AboutPage() {
+  const { contactEmail, contactPhone, contactPhoneHref, social } = siteConfig;
+
   return (
-    <main className="container mx-auto px-6 md:px-8 py-10">
+    <main id="main-content" className="container mx-auto px-6 md:px-8 py-10">
       <h1 className="text-4xl font-semibold">About</h1>
       <p className="mt-3 text-(--muted) max-w-3xl">
         I build secure backend systems and AI-powered applications. My focus is reliability, security, and measurable impact — from banking backends to ML services.
@@ -18,25 +22,37 @@ export default function AboutPage() {
         <div className="rounded-2xl border border-(--line) bg-(--panel) p-5">
           <h2 className="text-lg font-semibold">Contact</h2>
           <ul className="mt-3 space-y-2 text-sm">
-            <li><span className="text-(--muted)">Phone:</span> <a href="tel:+250798980237" className="underline decoration-dotted">+250 798 980 237</a></li>
-            <li><span className="text-(--muted)">Email:</span> <a href="mailto:odileduhirimana@gmail.com" className="underline decoration-dotted">odileduhirimana@gmail.com</a></li>
-            <li><span className="text-(--muted)">GitHub:</span> <a href="https://github.com/OdileDuhirimana" target="_blank" rel="noreferrer" className="underline decoration-dotted">OdileDuhirimana</a></li>
-            <li><span className="text-(--muted)">X:</span> <a href="https://twitter.com/duhirimanaOdile" target="_blank" rel="noreferrer" className="underline decoration-dotted">@duhirimanaOdile</a></li>
-            <li><span className="text-(--muted)">Instagram:</span> <a href="https://www.instagram.com/sky_lla320/" target="_blank" rel="noreferrer" className="underline decoration-dotted">sky_lla320</a></li>
+            {contactPhoneHref && contactPhone && (
+              <li><span className="text-(--muted)">Phone:</span> <a href={contactPhoneHref} className="underline decoration-dotted">{contactPhone}</a></li>
+            )}
+            {contactEmail && (
+              <li><span className="text-(--muted)">Email:</span> <a href={`mailto:${contactEmail}`} className="underline decoration-dotted">{contactEmail}</a></li>
+            )}
+            {social.github && (
+              <li><span className="text-(--muted)">GitHub:</span> <a href={social.github} target="_blank" rel="noreferrer" className="underline decoration-dotted">{social.github.replace("https://github.com/", "")}</a></li>
+            )}
+            {social.twitter && (
+              <li><span className="text-(--muted)">X:</span> <a href={social.twitter} target="_blank" rel="noreferrer" className="underline decoration-dotted">{social.twitter.replace("https://twitter.com/", "@")}</a></li>
+            )}
+            {social.instagram && (
+              <li><span className="text-(--muted)">Instagram:</span> <a href={social.instagram} target="_blank" rel="noreferrer" className="underline decoration-dotted">{social.instagram.replace(/^https:\/\/(www\.)?instagram\.com\//, "").replace(/\/$/, "")}</a></li>
+            )}
           </ul>
         </div>
         <div className="md:col-span-2 rounded-2xl border border-(--line) bg-(--panel) p-5">
           <h2 className="text-lg font-semibold">Experience</h2>
           <ul className="mt-3 list-disc pl-5 space-y-2 text-(--text)/90">
-            <li>
-              <span className="font-medium">Software Engineering Intern</span> — eFiche <span className="text-(--muted)">| Feb 2026 – Present</span>
-              <ul className="mt-1 list-disc pl-5 space-y-1">
-                <li>Contributed to the development and improvement of the eFiche Mobile App and Team Performance Dashboard.</li>
-                <li>Supported other ongoing projects, collaborating across functions to implement features and troubleshoot issues.</li>
-                <li>Managed environment configurations and deployment tasks for production updates.</li>
-                <li>Participated in requirement discussions, translating feedback into technical solutions.</li>
-              </ul>
-            </li>
+            {experience.map((role) => (
+              <li key={`${role.company}-${role.title}-${role.period}`}>
+                <span className="font-medium">{role.title}</span> — {role.company}{" "}
+                <span className="text-(--muted)">| {role.period}</span>
+                <ul className="mt-1 list-disc pl-5 space-y-1">
+                  {role.bullets.map((bullet) => (
+                    <li key={bullet}>{bullet}</li>
+                  ))}
+                </ul>
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -61,12 +77,12 @@ export default function AboutPage() {
         <h2 className="text-2xl font-semibold mb-4">Education</h2>
         <div className="rounded-2xl border border-(--line) bg-(--panel) p-5">
           <ul className="list-disc pl-5 space-y-2 text-(--text)/90">
-            <li>
-              <span className="font-medium">Rwanda Coding Academy</span> — Software Programming & Embedded Systems <span className="text-(--muted)">| 2022 – 2025</span>
-            </li>
-            <li>
-              <span className="font-medium">Lycée Notre Dame de Citéaux</span> — O’Level <span className="text-(--muted)">| 2019 – 2021</span>
-            </li>
+            {education.map((entry) => (
+              <li key={`${entry.institution}-${entry.period}`}>
+                <span className="font-medium">{entry.institution}</span> — {entry.program}{" "}
+                <span className="text-(--muted)">| {entry.period}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </section>

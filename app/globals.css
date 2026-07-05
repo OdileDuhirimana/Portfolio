@@ -93,6 +93,30 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 2px;
 }
 
+/* Below `sm`, the hero card's padding leaves too little width for the full
+   112px badge next to the heading — at 375px it visibly overlapped the
+   "Secure Backend & AI Engineer" text. Scaling the whole mark down (rather
+   than hiding it) keeps the same identity element on every breakpoint,
+   just proportionally smaller; `Hero.tsx` reserves matching space via
+   `pr-*` on the heading column so the two never collide. */
+@media (max-width: 639px) {
+  .hero-mark {
+    width: 64px;
+    height: 64px;
+  }
+
+  .hero-mark__core {
+    width: 46px;
+    height: 46px;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+
+  .hero-mark__orbit--two {
+    inset: 6px;
+  }
+}
+
 .hero-mark__orbit {
   position: absolute;
   inset: 0;
@@ -138,4 +162,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Smooth transitions */
 * {
   transition: color 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+/* Suppress native browser clear button on search inputs */
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
 }

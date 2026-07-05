@@ -1,9 +1,20 @@
+import { siteConfig } from "@/lib/config/site";
+
+function getInitials(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length === 0) return "";
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return `${parts[0][0]}${parts[parts.length - 1][0]}`.toUpperCase();
+}
+
 export default function Hero() {
+  const monogram = getInitials(siteConfig.ownerName);
+
   return (
     <section className="relative overflow-hidden rounded-3xl border border-(--line) bg-(--panel) p-8 md:p-12">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(212,175,55,0.12),transparent_55%)]" />
-      <div className="relative max-w-3xl">
-        <p className="text-sm uppercase tracking-widest text-(--gold)">ODILE DUHIRIMANA</p>
+      <div className="relative max-w-3xl pr-20 sm:pr-0">
+        <p className="text-sm uppercase tracking-widest text-(--gold)">{siteConfig.ownerName.toUpperCase()}</p>
         <h1 className="mt-2 text-4xl md:text-5xl font-semibold">
           Secure Backend & AI Engineer
         </h1>
@@ -30,9 +41,9 @@ export default function Hero() {
           </a>
         </div>
       </div>
-      <div className="absolute right-6 top-6 h-28 w-28">
+      <div className="absolute right-4 top-4 h-16 w-16 sm:right-6 sm:top-6 sm:h-28 sm:w-28">
         <div className="hero-mark">
-          <div className="hero-mark__core">OD</div>
+          <div className="hero-mark__core">{monogram}</div>
           <span className="hero-mark__orbit hero-mark__orbit--one">
             <span className="hero-mark__dot" />
           </span>

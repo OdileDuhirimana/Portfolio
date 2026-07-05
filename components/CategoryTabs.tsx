@@ -1,6 +1,3 @@
-"use client";
-import { useState } from "react";
-
 export type Category = "backend" | "frontend" | "fullstack" | "ml" | "all";
 
 const tabs: { key: Category; label: string }[] = [
@@ -11,22 +8,31 @@ const tabs: { key: Category; label: string }[] = [
   { key: "frontend", label: "Frontend" },
 ];
 
-export default function CategoryTabs({ value, onChange }: { value?: Category; onChange?: (c: Category) => void }) {
-  const [current, setCurrent] = useState<Category>(value ?? "all");
-  const change = (c: Category) => {
-    setCurrent(c);
-    onChange?.(c);
-  };
+type CategoryTabsProps = {
+  value: Category;
+  onChange: (category: Category) => void;
+};
+
+/**
+ * Fully controlled tab list — the parent owns `value` and is the single
+ * source of truth. A prior version kept a mirrored `useState` internally,
+ * which meant `value` and internal `current` could silently desync if the
+ * parent ever changed `value` for a reason other than a tab click (e.g.
+ * resetting filters). Dropping internal state removes that failure mode.
+ */
+export default function CategoryTabs({ value, onChange }: CategoryTabsProps) {
   return (
-    <div className="inline-flex items-center gap-2 rounded-full border border-(--line) bg-(--panel) p-1.5">
+    <div role="tablist" aria-label="Filter projects by category" className="inline-flex items-center gap-2 rounded-full border border-(--line) bg-(--panel) p-1.5">
       {tabs.map(t => (
         <button
           key={t.key}
-          onClick={() => change(t.key)}
-          className={`relative rounded-full px-3 py-1.5 text-xs uppercase tracking-wider transition-colors ${current === t.key ? "bg-white/5 text-white" : "text-(--muted) hover:text-white"}`}
+          role="tab"
+          aria-selected={value === t.key}
+          onClick={() => onChange(t.key)}
+          className={`relative rounded-full px-3 py-1.5 text-xs uppercase tracking-wider transition-colors ${value === t.key ? "bg-white/5 text-white" : "text-(--muted) hover:text-white"}`}
         >
           {t.label}
-          {current === t.key ? <span className="absolute left-1/2 -bottom-[3px] h-[2px] w-6 -translate-x-1/2 rounded-full bg-(--gold)" /> : null}
+          {value === t.key ? <span className="absolute left-1/2 -bottom-[3px] h-[2px] w-6 -translate-x-1/2 rounded-full bg-(--gold)" /> : null}
         </button>
       ))}
     </div>

@@ -10,6 +10,20 @@ export default function ProjectGrid({ items, variant = "simple" as const }: { it
     hidden: { opacity: 0, y: 10 },
     show: { opacity: 1, y: 0, transition: { duration: 0.32, ease: [0.25, 0.8, 0.25, 1] } },
   };
+  if (items.length === 0) {
+    return (
+      <div
+        role="status"
+        aria-live="polite"
+        className="flex flex-col items-center justify-center gap-3 py-24 text-center"
+      >
+        <span className="text-4xl select-none" aria-hidden="true" style={{ color: "var(--muted)" }}>⌕</span>
+        <p className="text-base font-medium" style={{ color: "var(--text)" }}>No projects found</p>
+        <p className="text-sm" style={{ color: "var(--muted)" }}>Try a different keyword or category.</p>
+      </div>
+    );
+  }
+
   return (
     <div className="columns-1 sm:columns-2 lg:columns-3 gap-x-6">
       {items.map(p => (

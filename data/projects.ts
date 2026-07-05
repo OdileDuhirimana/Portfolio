@@ -134,7 +134,8 @@ export const projects: Project[] = [
       { label: "Roles", value: "3 RBAC levels" }
     ],
     liveUrl: "https://vitals-zeta.vercel.app",
-    repoUrl: repo("health-tracker")
+    repoUrl: repo("health-tracker"),
+    images: ["/images/projects/vitals-careops.png"]
   },
   {
     title: "CampusConnect",
@@ -148,7 +149,8 @@ export const projects: Project[] = [
       "Role-aware social workflows for students, club admins, and campus admins"
     ],
     liveUrl: "https://campus-connect-smoky.vercel.app",
-    repoUrl: repo("CampusConnect")
+    repoUrl: repo("CampusConnect"),
+    images: ["/images/projects/campusconnect.png"]
   },
   {
     title: "SafeShop",
@@ -163,7 +165,8 @@ export const projects: Project[] = [
     ],
     liveUrl: "https://safe-shop-iota.vercel.app/",
     swaggerUrl: "https://safeshop-api.onrender.com/api/docs",
-    repoUrl: repo("SafeShop")
+    repoUrl: repo("SafeShop"),
+    images: ["/images/projects/safeshop.png"]
   },
   {
     title: "SkillBridge",
@@ -177,7 +180,8 @@ export const projects: Project[] = [
       "Gamification and analytics dashboards for both candidates and employers"
     ],
     liveUrl: "https://skill-bridge-swart-alpha.vercel.app/",
-    repoUrl: repo("SkillBridge")
+    repoUrl: repo("SkillBridge"),
+    images: ["/images/projects/skillbridge.png"]
   },
   {
     title: "FitSync",

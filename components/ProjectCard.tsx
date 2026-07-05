@@ -1,6 +1,7 @@
 "use client";
+import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowRight, ExternalLink, Github } from "lucide-react";
 import { TechBadge } from "@/components/TechBadge";
 import ProjectIcon from "@/components/ProjectIcon";
 
@@ -46,7 +47,14 @@ export default function ProjectCard(props: Props) {
             </span>
           </div>
         </div>
-        <h3 className="text-2xl font-semibold text-foreground">{title}</h3>
+        <h3 className="text-2xl font-semibold text-foreground">
+          <Link
+            href={`/project/${slug}`}
+            className="rounded-sm hover:text-(--gold) focus-visible:outline-none focus-visible:ring-2 ring-(--focus)"
+          >
+            {title}
+          </Link>
+        </h3>
         <p className="mt-1 text-(--muted)">{tagline}</p>
       </header>
 
@@ -58,7 +66,13 @@ export default function ProjectCard(props: Props) {
         {highlights.slice(0, 3).map((h, i) => <li key={i}>{h}</li>)}
       </ul>
 
-      <div className="flex items-center gap-3">
+      <div className="flex flex-wrap items-center gap-3">
+        <Link
+          href={`/project/${slug}`}
+          className="inline-flex items-center gap-2 rounded-lg bg-(--gold) px-3 py-2 text-sm font-medium text-black hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 ring-(--focus)"
+        >
+          Case Study <ArrowRight className="w-4 h-4" aria-hidden="true" />
+        </Link>
         {liveUrl && (
           <a className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm hover:bg-white/5"
              href={liveUrl} target="_blank" rel="noreferrer">

@@ -24,7 +24,7 @@ export default function CaseStudyLayout({
   const impact = project.outcomes?.[0];
   const approach = project.highlights?.slice(0, 2) || [];
   return (
-    <main className="container mx-auto px-6 md:px-8 py-10">
+    <main id="main-content" className="container mx-auto px-6 md:px-8 py-10">
       <header className="mb-8 rounded-2xl border border-(--line) bg-(--panel) p-6">
         <h1 className="text-4xl font-semibold">{project.title}</h1>
         <p className="mt-2 text-(--muted)">{project.tagline}</p>

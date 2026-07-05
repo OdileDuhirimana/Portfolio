@@ -23,7 +23,9 @@ import {
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
-const GOLD = "#D4AF37";
+// Reads the frozen --gold token at render time so this stays in sync with
+// app/globals.css instead of duplicating the hex value as a literal.
+const GOLD = "var(--gold)";
 const SIZE = 44; // ~ h-11
 const STROKE = 1.5;
 

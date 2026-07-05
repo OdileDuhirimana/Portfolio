@@ -1,0 +1,171 @@
+openapi: 3.0.3
+info:
+  title: Portfolio Site API
+  description: >
+    The two server-side endpoints this portfolio site exposes. Everything
+    else (project pages, about, resume) is statically generated and has no
+    API surface — see the README's Architecture section for the full
+    request flow diagram.
+  version: "1.0.0"
+servers:
+  - url: /api
+    description: Relative to whatever origin the site is deployed at (see NEXT_PUBLIC_SITE_URL).
+
+paths:
+  /contact:
+    post:
+      summary: Submit the contact form
+      description: >
+        Validates, rate-limits, and delivers a contact-form submission by
+        email via Resend. Requires the request's Origin (or Referer, as a
+        fallback) header to match its own Host header — cross-origin
+        submissions are rejected with 403 INVALID_ORIGIN as a CSRF defense.
+      operationId: submitContactForm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ContactFormRequest"
+            examples:
+              valid:
+                value:
+                  name: "Jane Doe"
+                  email: "jane@example.com"
+                  message: "Hello, I'd like to get in touch about a role."
+      responses:
+        "200":
+          description: >
+            Message delivered, OR the honeypot field was filled (bots
+            receive an identical success response so they cannot
+            distinguish a caught submission from a real one).
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiSuccessEmpty"
+        "400":
+          description: Malformed JSON body or a validation failure.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              examples:
+                invalidJson:
+                  value: { ok: false, error: "Request body must be valid JSON.", code: "INVALID_JSON" }
+                validation:
+                  value: { ok: false, error: "Name must be at least 2 characters.", code: "VALIDATION_ERROR", details: { field: "name" } }
+        "403":
+          description: The request's Origin/Referer did not match its own Host (CSRF defense).
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              example: { ok: false, error: "Request origin could not be verified.", code: "INVALID_ORIGIN" }
+        "429":
+          description: Rate limit exceeded (5 requests per 60s per client IP).
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              example: { ok: false, error: "Too many requests. Please try again later.", code: "RATE_LIMITED", details: { retryAfterSeconds: 42 } }
+        "500":
+          description: Server is missing required email-provider configuration.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              example: { ok: false, error: "Email service is not configured on the server.", code: "EMAIL_NOT_CONFIGURED", details: { correlationId: "..." } }
+        "502":
+          description: The upstream email provider (Resend) rejected the request or was unreachable.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ApiError"
+              example: { ok: false, error: "Failed to send message. Please try again later.", code: "EMAIL_SEND_FAILED", details: { correlationId: "..." } }
+
+  /health:
+    get:
+      summary: Report whether the contact form's email dependency is configured
+      description: >
+        Always returns HTTP 200 — a missing email env var means the
+        contact form is degraded, not that the whole site is down, so this
+        endpoint never signals a hard outage to uptime monitors or the
+        Docker HEALTHCHECK over a misconfigured (not broken) deployment.
+      operationId: getHealth
+      responses:
+        "200":
+          description: 'Either fully healthy (ok=true) or degraded (ok=false, code=DEGRADED) — check the body, not just the status code.'
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/HealthOk"
+                  - $ref: "#/components/schemas/HealthDegraded"
+              examples:
+                healthy:
+                  value:
+                    ok: true
+                    data:
+                      status: "ok"
+                      timestamp: "2026-07-04T12:00:00.000Z"
+                      checks: { RESEND_API_KEY: "configured", CONTACT_FROM_EMAIL: "configured", CONTACT_TO_EMAIL: "configured" }
+                degraded:
+                  value:
+                    ok: false
+                    error: "One or more contact-form dependencies are not configured."
+                    code: "DEGRADED"
+                    details:
+                      timestamp: "2026-07-04T12:00:00.000Z"
+                      checks: { RESEND_API_KEY: "missing", CONTACT_FROM_EMAIL: "configured", CONTACT_TO_EMAIL: "configured" }
+
+components:
+  schemas:
+    ContactFormRequest:
+      type: object
+      required: [name, email, message]
+      properties:
+        name:
+          type: string
+          minLength: 2
+        email:
+          type: string
+          format: email
+        message:
+          type: string
+          minLength: 10
+        honey:
+          type: string
+          description: Honeypot field. Must be left empty by real users; any non-empty value is silently treated as spam.
+    ApiSuccessEmpty:
+      type: object
+      properties:
+        ok: { type: boolean, enum: [true] }
+        data: { type: object }
+    ApiError:
+      type: object
+      properties:
+        ok: { type: boolean, enum: [false] }
+        error: { type: string }
+        code: { type: string }
+        details: { type: object }
+    HealthOk:
+      type: object
+      properties:
+        ok: { type: boolean, enum: [true] }
+        data:
+          type: object
+          properties:
+            status: { type: string, enum: [ok] }
+            timestamp: { type: string, format: date-time }
+            checks: { type: object, additionalProperties: { type: string, enum: [configured, missing] } }
+    HealthDegraded:
+      type: object
+      properties:
+        ok: { type: boolean, enum: [false] }
+        error: { type: string }
+        code: { type: string, enum: [DEGRADED] }
+        details:
+          type: object
+          properties:
+            timestamp: { type: string, format: date-time }
+            checks: { type: object, additionalProperties: { type: string, enum: [configured, missing] } }

@@ -100,8 +100,8 @@ export const projects: Project[] = [
       "Risk scoring for purchases with refund policy previews and alert queues",
       "Privacy/compliance APIs with consent logs, retention jobs, and outbox retries"
     ],
-    liveUrl: hf2("gatherly-api"),
-    swaggerUrl: hf2("gatherly-api", "/api/docs"),
+    liveUrl: "https://gatherly-api-nh4k.onrender.com",
+    swaggerUrl: "https://gatherly-api-nh4k.onrender.com/api/docs",
     repoUrl: repo("Gatherly")
   },
   {

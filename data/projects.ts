@@ -133,7 +133,6 @@ export const projects: Project[] = [
       { label: "Seeded records", value: "120 patients" },
       { label: "Roles", value: "3 RBAC levels" }
     ],
-    liveUrl: "https://vitals-zeta.vercel.app",
     repoUrl: repo("health-tracker"),
     images: ["/images/projects/vitals-careops.png"]
   },

@@ -56,8 +56,6 @@ export const projects: Project[] = [
       "Transfer idempotency, account freeze controls, and CSV statements",
       "Audit and fraud oversight endpoints with Swagger-documented APIs"
     ],
-    liveUrl: "https://nova-bank-api.onrender.com",
-    swaggerUrl: "https://nova-bank-api.onrender.com/swagger-ui/index.html",
     repoUrl: repo("NovaBank")
   },
   {
@@ -100,7 +98,7 @@ export const projects: Project[] = [
       "Risk scoring for purchases with refund policy previews and alert queues",
       "Privacy/compliance APIs with consent logs, retention jobs, and outbox retries"
     ],
-    liveUrl: "https://gatherly-api-nh4k.onrender.com",
+    liveUrl: "https://gatherly-api-nh4k.onrender.com/api/docs",
     swaggerUrl: "https://gatherly-api-nh4k.onrender.com/api/docs",
     repoUrl: repo("Gatherly")
   },
@@ -249,7 +247,7 @@ export const projects: Project[] = [
       "Digital twin, wellness, voice-analysis, gamification, and alerts modules",
       "Analytics/report endpoints for class, subject, and school-level interventions"
     ],
-    liveUrl: hf("predictwise-api"),
+    liveUrl: hf("predictwise-api", "/apidocs/"),
     swaggerUrl: hf("predictwise-api", "/apidocs/"),
     repoUrl: repo("PredictWise")
   }

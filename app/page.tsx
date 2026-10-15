@@ -9,7 +9,10 @@ export const metadata = buildPageMetadata({
 });
 
 export default function HomePage() {
-  const featured = projects.filter(p => ["backend","ml"].includes(p.category)).slice(0,6);
+  const featuredSlugs = ["fraudguard-ml", "sentiana", "careflow-api", "nova-bank-core", "predictwise", "safeshop"];
+  const featured = featuredSlugs
+    .map(slug => projects.find(p => p.slug === slug))
+    .filter((p): p is (typeof projects)[number] => p !== undefined);
   return (
     <main id="main-content" className="container mx-auto px-6 md:px-8 py-10">
       <Hero />

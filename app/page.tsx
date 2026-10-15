@@ -9,7 +9,7 @@ export const metadata = buildPageMetadata({
 });
 
 export default function HomePage() {
-  const featuredSlugs = ["fraudguard-ml", "sentiana", "careflow-api", "nova-bank-core", "predictwise", "safeshop"];
+  const featuredSlugs = ["fraudguard-ml", "sentiana", "careflow-api", "nova-bank-core", "predictwise", "kinyarwanda-voice-assistant"];
   const featured = featuredSlugs
     .map(slug => projects.find(p => p.slug === slug))
     .filter((p): p is (typeof projects)[number] => p !== undefined);

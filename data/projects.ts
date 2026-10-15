@@ -250,5 +250,18 @@ export const projects: Project[] = [
     liveUrl: hf("predictwise-api", "/apidocs/"),
     swaggerUrl: hf("predictwise-api", "/apidocs/"),
     repoUrl: repo("PredictWise")
+  },
+  {
+    title: "Kinyarwanda Voice Assistant",
+    slug: "kinyarwanda-voice-assistant",
+    category: "ml",
+    tagline: "Voice assistant that listens and answers in Kinyarwanda, a language most AI tools still ignore.",
+    tech: ["Python","Transformers","KinyaWhisper","PyTorch","gTTS","fuzzywuzzy"],
+    highlights: [
+      "Lets Kinyarwanda speakers ask questions by voice and hear answers back in their own language",
+      "Built on KinyaWhisper, a speech model trained on only ~100 recordings, which exposed how little AI data exists for Kinyarwanda",
+      "Fuzzy matching tolerates transcription errors so imperfect recognition still gets an answer"
+    ],
+    repoUrl: repo("kinya_ai")
   }
 ];
